@@ -13,6 +13,8 @@ label start:
     label name_select:
         $ mc_name = renpy.input("What's your name?", length=8).lower().title()
         $ mc_name = ' '.join(mc_name.split())
+        if mc_name =="":
+            $ mc_name = "Primrose"
 
 
     if mc_name == "":
@@ -213,7 +215,7 @@ label start:
     "When we get back to the living room, Nina and Basilio are sitting next to each other. Basilio is pretending to be asleep, faking loud snores while Nina is mixing a pack of cards in her hands."
 
     n "Let’s play a game while we have dinner! Hey MC, look - I did the art myself! Do you like them?"
-    
+
     #IF OBTAINED AT LEAST ONE ENDING : Skip the game?
 
     #[CARD GAME GAMEPLAY : Vecia]
@@ -433,7 +435,7 @@ label start:
     "Mikhail squeezes me so tight in his arms, I could almost hear my bones cracking under the pressure."
 
     m "Darling… You’re acting so pure and shy but I know you. I know that in reality, deep down in your heart, you’re longing for something far more sinister than this."
-    
+
 
 
     m "Now relax and don’t move…"
@@ -530,7 +532,7 @@ label start:
             m "Hey, it’s fine… I did show up behind you without warning, didn’t I?"
 
             "I put back the knife on the counter like it’s on fire. I’m in disbelief, and horrified. How could I point a knife at my friend?"
-    
+
 
     mc "Ah ah… Yeah, rough night, huh? I must be still half-asleep myself… I’m sorry…"
 
@@ -538,7 +540,7 @@ label start:
 
     "His hands reach towards me and I…" #MIKHAIL GLITCHING TO MONSTER FORM
 
-    
+
 
     menu:
 
@@ -567,7 +569,7 @@ label start:
 
             "How could I think he was trying to hurt me? I need to stop thinking about that stupid dream. Thankfully the fresh towel calms me down, bringing me back to reality."
 
-    
+
 
     "I chop and cover the fresh meat with salt to preserve it and pack it."
 
@@ -700,7 +702,7 @@ label start:
     "The forest fairy is the queen of these mountains. Every year, around the end of September, the townspeople celebrate her awakening which is said to grant wishes."
 
     "This story has lived through the ages, not without its variants. Some walk in the forest, some dance around the campfire while others pray to the moon at night from the comfort of their homes."
-    
+
     "Fairytale or not, it brings comfort and hope to people for the next year to come."
 
     "I circle around the tree, looking at all the offerings decaying from the elusive passage of time."
@@ -800,7 +802,7 @@ label start:
             $ points_end_2 += 1
             $ points_end_3 += 1
 
-            
+
             "I can’t help but smile while Nina wipes away her tears, and I sit down to lean against her. Seeing someone this passionate about wanting to be around their loved ones is really moving."
             "I’m grateful to be one of the people she cares about."
 
