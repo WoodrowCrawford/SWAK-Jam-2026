@@ -29,6 +29,8 @@ label start:
 
     scene interior_cottage with Fade(1.0,0.0,1.0)
 
+    show mc neutral at center 
+
     mc "Alright, the caramel is done. I’ll do some cleaning while it’s cooling."
 
     "A faint breeze comes from the open window, making me shiver and reminding me to close them before night."
@@ -36,6 +38,8 @@ label start:
     "Fall is coming soon. Farewell to the summer’s warmth, the cicada’s songs, and the dances around the bonfire…"
 
     "I hope mom and dad are resting at their inn, they must be exhausted from walking."
+
+    show mc sad at center
 
     "I wish I could have gone with them…"
 
@@ -63,6 +67,8 @@ label start:
 
     "Just as I was about to lose myself in my imagination, laughter and chatter brought me back to Earth."
 
+    hide mc
+
     "???" "My feet huuuuuuuuurt…!"
 
     "???" "For the Gods’ sake, we’re almost there! Didn’t you tell Simone you were “the strongest man in the valley”?"
@@ -71,17 +77,26 @@ label start:
 
     "???" "Guys, guys! If you don’t keep your voices down, you can kiss our surprise goodbye."
 
+    show mc happy mouth open at center
 
     "I try not to laugh and fail; they’re still as loud as ever."
 
     "Our neighbours don’t even waste their time scolding us anymore."
+
+    show mc happy at center
 
     "I pour the caramel on the sweet shortcrust pastry, humming to myself."
 
 
     "As I prepare myself to look surprised by their arrival, someone grabs my shoulder."
 
+    show mc happy at left:
+        xalign 0.5
+        linear 1.0 xalign 0.0
+
     "???" "No way! Don’t tell me you’re making your signature walnut pie? Luckyyy!"
+
+    show mc scared at left
 
     mc "Ah-! Basilio, you scared me half to death!"
 
@@ -89,13 +104,29 @@ label start:
 
     b "Surpriiiise! Since you can’t party outside we thought we should bring the parteey to you!"
 
+    show nina happy at left:
+        xalign 1.5
+        linear 1.0 xalign 0.3
+
+    show mc happy mouth open at left
+
     "Nina steps up to hug me and I squeeze her back."
+
+    show nina happy at left:
+        xalign 0.3
+        easein 1.0 xalign 1.0
 
     "I missed my best friend so much."
 
     mc "Nina! It’s so good to see you!"
 
+    show mc happy at left
+
+    show nina happy mouth open at right
+
     n "Glad to see you too, buttercup."
+
+    show nina happy at right
 
     "Basilio clears his throat to ask for our attention."
 
@@ -106,6 +137,8 @@ label start:
     "Despite the embarrassment, he takes a beautiful handmade package from his basket and gives it to me."
 
     "A beautiful cyan apron unravels itself as I take it in my hands. In the corners, roses and vines intertwine in a deeper shade of green."
+
+    show mc happy mouth open at left
 
     mc "Oh, Mikhail… This is so pretty! You know how much I love embroideries…"
 
