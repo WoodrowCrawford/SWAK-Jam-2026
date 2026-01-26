@@ -29,7 +29,7 @@ label start:
 
     scene interior_cottage with Fade(1.0,0.0,1.0)
 
-    show mc neutral at center 
+    show mc neutral at center
 
     mc "Alright, the caramel is done. I’ll do some cleaning while it’s cooling."
 
@@ -44,7 +44,7 @@ label start:
     "I wish I could have gone with them…"
 
     "They looked so worried, rushing out the door and ranting of a distant family matter. I wanted to go with them, hoping to meet new relatives but I couldn’t."
-
+    play music "audio/OST/Main.mp3" fadein 1.0
     "This town is the only thing I’ve known my entire life."
 
     "Since birth, my health has been weak. I wasn’t even allowed to wander past the courtyard."
@@ -66,7 +66,7 @@ label start:
     "I put it in my pocket as I picture myself as a crow-commanding witch, bringing chaos and gifts in equal measure on my many adventures."
 
     "Just as I was about to lose myself in my imagination, laughter and chatter brought me back to Earth."
-
+    stop music fadeout 1.0
     hide mc
 
     "???" "My feet huuuuuuuuurt…!"
@@ -76,7 +76,7 @@ label start:
     "???" "Fine, I confess…! I LIED to get the job, okay?? How could you blame a DESPERATE man for DESPERATELY wanting a job?!?"
 
     "???" "Guys, guys! If you don’t keep your voices down, you can kiss our surprise goodbye."
-
+    play music "audio/OST/Cozy.mp3" fadein 1.0
     show mc happy mouth open at center
 
     "I try not to laugh and fail; they’re still as loud as ever."
@@ -316,7 +316,8 @@ label start:
     n "[mc_name], let’s get out of here before they infect us with their stupidity."
 
     "We both head to my room and get ourselves ready to go to bed."
-
+    stop music fadeout 1.0
+    scene cg_bed with Dissolve (1.0)
     n "How’s it going between you two?"
 
     mc "Huh? What do you mean?"
@@ -416,7 +417,7 @@ label start:
     "Either way, I can’t tell the time of the day."
 
     mc "I need to get home, something’s not right here…"
-
+    play music "audio/OST/Creepy.mp3" fadein 1.0
     "I walk through the dormant woods, everything is so… Quiet."
 
     "I can almost hear my heartbeat under the noise of my quickening footsteps."
@@ -440,7 +441,7 @@ label start:
     mc "Mikhail! Thank goodness you’re here. We need to get home, it’s not safe here-"
 
     "I reach for him, but he grabs my wrists and traps me in an embrace. It’s too tight."
-
+    scene cg_nightmare_1 with Dissolve (1.0) #size too big
 
     m "Finally… No one will bother us now."
 
@@ -484,7 +485,7 @@ label start:
     "I can’t run away, my legs won’t move an inch. The thing cracks and stumbles towards me as I close my eyes and pray to whichever God can make my death as painless as it can be."
 
     scene black with Dissolve(1.0)
-
+    stop music fadeout 1.0
     "Then I heard Nina’s voice calling me."
 
     n "Hey sleepy-head, are you alright?"
