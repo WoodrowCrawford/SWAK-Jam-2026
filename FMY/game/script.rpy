@@ -286,20 +286,6 @@ label start:
 
     n "Nope, not this again- I’m going to stop you right there."
 
-    #IF MC LOSES: 
-
-    b "Getting rusty uh?"
-
-    mc "Yeah, I guess so…"
-
-    n "It’s alright, you’ll get better cards next time."
-
-    #(jokingly)
-    m "Maybe you could train with some rabbits while your parents are away?"
-
-    #(deadpan)
-    mc "I would be too focused on their fluffiness to win anything…"
-
     n "It’s getting late, we better get some sleep before tomorrow’s great escape."
 
     b "Yeah I agree. So… Mimi? I guess you’ll share the bedroom with [mc_name] tonight… You rascal."
@@ -318,6 +304,7 @@ label start:
     "We both head to my room and get ourselves ready to go to bed."
     stop music fadeout 1.0
     scene cg_bed with Dissolve (1.0)
+    play sound "audio/SFX/countryside_night.mp3" fadein 1.0
     n "How’s it going between you two?"
 
     mc "Huh? What do you mean?"
@@ -398,6 +385,8 @@ label start:
 
     n "Goodnight sweetheart."
 
+    stop sound fadeout 1.0
+
     scene black with Dissolve(1.0)
 
     "Something is dripping on my face. Cool water makes its way down my cheek and onto the ground."
@@ -418,6 +407,7 @@ label start:
 
     mc "I need to get home, something’s not right here…"
     play music "audio/OST/Creepy.mp3" fadein 1.0
+    play sound "audio/SFX/walk_forest.mp3" fadein 0.5
     "I walk through the dormant woods, everything is so… Quiet."
 
     "I can almost hear my heartbeat under the noise of my quickening footsteps."
