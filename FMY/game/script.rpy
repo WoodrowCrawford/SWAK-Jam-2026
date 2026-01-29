@@ -467,7 +467,7 @@ label start:
     "I fall to the ground as he stumbles back."
 
     "This can’t be Mikhail, this… creature may look like him, but it can’t be-"
-
+    scene monsterMIKH_CG with Dissolve (1.0) #zoom out pls
     "Roses are blooming from my friend’s eyes, tainted by blood. Vines intertwines around his limbs, contorting him like a puppet. Its bones are cracking as he writhes in pain."
 
     "What on Earth is this thing?!"
@@ -501,7 +501,7 @@ label start:
 
 
     mc "Thank you. I already cleaned the house yesterday so I only need to go check on the chickens this morning."
-
+    scene exterior_cottage with dissolve (1.0)
     "Nina and I both take a basket and go outside, where chickens are hunting for worms. Their feathers, covered in morning dew’s pearls, make their warm colors brighter."
     "I crouch to pet some of them, gently brushing off their heads and petting little chicks in my hands while Nina is fetching fresh eggs from their nests in the coop."
 
@@ -638,7 +638,7 @@ label start:
 
     b "See you later, my sweet…"
 
-    #(Transition?) 
+    scene forest with Dissolve (1.0)
 
     "I can’t help but smile as we hike among all these trees. Every leaf, root and burrow hides a secret."
 
@@ -891,129 +891,13 @@ label start:
     "Nina?" "Look at you, my poor sweetheart. You’re so pale… you can’t even walk on those shaky legs…"
 
     "I whip around, startled at the pretty lady holding my hand."
-
+    scene Hicetia_CG with Dissolve (1.0)
     nl "Why not rest a little, my dear? Here, let’s sit down for a bit. There’s no need to rush…"
 
-    "I don’t have the time to protest, the lady pushes me down by my shoulders to make me sit on a rock."
+    "Our eyes meet, my heart stings as if pierced by a thousand needles. Something deep inside tells me we were meant to meet each other..."
+    "I should have never set foot in this cursed forest."  #like in red or something spooky, shaking effect maybe?
 
-    "I can’t help but stare at her. Her dress with intricate patterns, her soft curls falling on her collarbone, her pink lips… She may as well be a princess."
-
-    "She has this delicate perfume about her, of dew and roses. Her eyes are staring intently back at me, and I hold my breath. How can anyone be this beautiful…?"
-
-    "The unknown woman produces a teacup out of thin air, cradling it with her immaculate fingers."
-
-    "The sweet and earthy scent coming from the warm drink looks tempting… How had I not noticed how cold I was feeling up until now?"
-
-    nl "Here, dear. This will make you feel better."
-
-    menu:
-
-        "Drink":
-            $ points_end_1 += 1
-            $ accepted_drink = True
-
-            "The beverage is  unlike anything I’ve tasted before."
-
-            "Its strong flavor leaves no bitterness, I feel my senses get sharper as a sweet aftertaste soothes my nerves."
-
-            "What strikes me the most is the color, which shifts between blue and pink tones."
-
-            "I feel so calm… So relaxed… my limbs feel lighter and the ringing in my ears dies down."
-
-            mc "You’re so pretty…"
-
-            "I can’t help but whisper that before gasping in embarrassment."
-
-            "There’s a strange sense of triumph in her smile. I really did say that out loud, didn’t I…?"
-
-            "She leans closer still and brushes a strand of hair past my ear. I feel my cheeks burn."
-
-            "I wonder if burying my head against her could make me forget all my problems… Is her hair as soft as it looks? I want- no, I need to feel her skin against mine."
-
-            nl "You can’t imagine how wonderful it is to hear that from you, [mc_name]…"
-            "I jerk away from her. I don’t have time for these embarrassing musings."
-
-            "I need to focus."
-
-        "Decline":
-            $ points_end_3 += 1
-            $ points_end_2 += 1
-
-            "Even if my throat begs for a taste, I can’t accept a gift from a stranger."
-
-            mc "I’m thankful, milady, it smells wonderful but I can promise you I’m fine… I only need to breathe for a moment."
-
-            "Her bright eyes get cold, despite her smile not faltering at all."
-
-            nl "As long as you’re okay, I suppose you can refuse."
-
-            "Suddenly, she throws the tea cup against a tree, shattering it into a thousand pieces."
-
-            "I stare at her, wordlessly. Why did she do that? She’s starting to scare me."
-
-            "Where did she even come from? What is a noble like her doing in these woods, alone? This is too weird."
-
-            "I awkwardly smile and try to stand up."
-
-            mc "Thank you my lady, alas I can’t rest any longer. My friends are waiting for me, at the wishing tree, so I must get going-"
-
-            "The noblewoman pushes me down once more, laughing as if I just told her some kind of bad joke."
-
-            nl "They can wait, don’t you think? Your well-being is so much more important than they are. Surely they understand that, [mc_name]."
-
-
-    "I need a moment to think back at what just happened."
-
-    "Nina vanishes and this strange woman appears. How is that even possible?"
-
-    mc "Who are you? Where’s Ni- the girl that was with me just now…?"
-
-    nl "Ah, I see…"
-
-    nl "I knew you wouldn’t recognize me right away but still, this really hurts. My name is Hicetia. Make sure not to forget that again."
-
-    mc "Oh, uhm, forgive me, lady Hicetia- I don’t recall ever meeting you before… If I may ask you to be so kind,  could you point me in the direction of the girl that was just with me? She’s about this tall and has braided hair, she was right here a moment ago-!"
-
-    h "My, how rude of you. Were humans always in such a hurry? Tsk tsk tsk… I still don’t understand what you see in them…"
-
-    mc "What are you talking about?? My friend, Nina, was just here. If you didn’t see her, please just let me go find her…"
-
-    h "Ha, your worried face truly is adorable…"
-
-    "She’s talking all weird. It doesn’t seem like she’ll be of much help."
-
-    "I slowly back away from her and decide to leave."
-
-    if accepted_drink:
-
-        "I sneak a peek back at her but she doesn’t seem to be following me."
-
-        "Suddenly I feel her chest pressed against my back. Her fingers brush against my waist, sealing me away in a tight embrace."
-
-        "I hold my breath."
-
-        "How can such delicate hands be so strong?"
-
-        "A shiver runs down my spine as I feel her dip her nose past my hair. I feel her hot breath tickling my skin before soft lips meet the back of my neck."
-
-        "This soft and loving peck turns into a light bite, making my back arch slightly."
-
-        "It burns…! it’s as if she’s rubbing nettles all over my nape."
-
-        "I turn around to confront her, but the woman has disappeared."
-
-        "Her laughter echoes all around me, and I shiver with anticipation."
-
-        "I need to find Nina as soon as possible and leave this place."
-    else:
-
-        "I sneak a peek back at her but thankfully she’s not following me."
-
-        mc "I’ll be on my way now… Please take care…"
-
-        "She smiles and waves her hand."
-
-        h "See you soon, enjoy your little game of hide and seek…"
+    "THANK YOU FOR PLAYING OUR DEMO!!! See you soon ! ~"
 
 
     return
