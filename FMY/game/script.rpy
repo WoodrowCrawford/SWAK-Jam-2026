@@ -840,11 +840,11 @@ label start:
     m "Hold on…"
 
     show mikh dark
-    pause 0.3
+    pause 0.2
     show mikh blushing
-    pause 0.3
+    pause 0.2
     show mikh dark
-    pause 0.3
+    pause 0.2
     show mikh blushing
 
     show mc scared
@@ -859,29 +859,52 @@ label start:
             $ points_end_1 += 1
             $ points_end_2 += 1
 
+            show mc scared version2
+            show mikh sad
             "Without a second thought, I slap his hand away. His surprised expression turns into a hurt one."
 
+            show mc sad
+            show mikh sad mo
             m "Sorry… Didn’t mean to startle you again… I just wanted to wipe the blood from your face."
 
+            show mc sad mouth open
+            show mikh sad
             mc "Oh…! Gods, what am I doing… I’m so sorry Mikhail."
 
+            show mc pensive worried
+            show mikh happy
             m "Hey it’s okay, I should have just told you what I was doing."
+
+            scene black with Dissolve(1.0)
             "I feel guilty, but also glad he didn’t get the chance to touch me. I don’t know how I would have reacted."
 
         "Let him":
             $ points_end_3 += 1
 
+            show mc blushing
+            show mikh happy
             "I try to stay still, repeating over and over “it was only a nightmare [mc_name], it was ONLY a nightmare. You don’t need to be afraid.” in my head."
 
             "Mikhail’s hand brushes my cheek, tainting his fingers red."
+
+            show mc happy
+            show mikh happy
             "A sigh of relief escapes my lips, as I realize he only wanted to clean my face."
 
             m "Wait, I’ll get a clean towel."
 
+            show mc sad head move
+            scene black with Dissolve(1.0)
             "How could I think he was trying to hurt me? I need to stop thinking about that stupid dream. Thankfully the fresh towel calms me down, bringing me back to reality."
 
 
 
+    scene interior_cottage with Fade(0.5, 0.5, 0.5)
+    show mc happy at left:
+        xalign -0.02
+
+    show mikh happy at right:
+        xalign 1.05
     "I chop and cover the fresh meat with salt to preserve it and pack it."
 
     mc "I’ll go and put it away in the cellar."
@@ -911,7 +934,7 @@ label start:
 
     b "How can you say no to this marvelous piece of art!"
 
-    "The thick, glossy cream, the savory soft potatoes, and of the delicate crunch of the sauteed onions… And who could forget la pièce de résistance - The smoked and melted (SINGING LOUDLY)RRRRRRAAAAAAAAAAAAAACLETTE!!"
+    "The thick, glossy cream, the savory soft potatoes, and of the delicate crunch of the sauteed onions… And who could forget la pièce de résistance - The smoked and melted RRRRRRAAAAAAAAAAAAAACLETTE!!"
 
     #(interrupting)
     m "-Actually, I already packed polenta e salame while the girls were outside. Does that sound good to everyone?"
@@ -921,12 +944,14 @@ label start:
 
     n "Definitely agree."
 
-    "Basilio, disappointed, cuddles the basket for the last time. Like a mother abandoning her child, he puts it down on the table and sheds a single tear."
+    "Basilio, disappointed, cuddles the basket for one last time. Like a mother abandoning her child, he puts it down on the table and sheds a single tear."
 
     b "See you later, my sweet…"
 
     scene forest with Dissolve (1.0)
 
+    hide mc
+    hide mikh
     "I can’t help but smile as we hike among all these trees. Every leaf, root and burrow hides a secret."
 
     "I’ve heard so many legends about the mountains, our elders tell all kinds of stories after a bit of wine."
@@ -935,6 +960,11 @@ label start:
 
     "My parents didn’t quite like that, they’re not into that superstitious stuff. They were worried those stories would scare me, but they never did."
 
+    show mc happy:
+        xalign -0.02
+    
+    show bas happy:
+        xalign 0.4
     "Those fairytales are a precious childhood memory I keep close to my heart."
 
     "Basilio is walking next to me, a soft smile on his face."
@@ -945,6 +975,8 @@ label start:
 
     b "Yeah, it was so fun… And tasty!"
 
+    show nina happy:
+        xalign 0.7
     n "We’re kind of doing it again right now."
 
     b "I would have the strength to protect us all if only you had let me bring the gratin, Nina…!"
@@ -953,11 +985,24 @@ label start:
 
     "Mikhail turns to Bas."
 
+    show bas:
+        linear 0.5 xalign 0.8
+
+    show nina:
+        linear 0.5 xalign 1.1
+
+    show mikh happy:
+        xalign 0.3
     m "Don’t worry… I’ll protect you, my love."
 
     #(tearing up)
     b "Oooh my hero!"
 
+    show bas:
+        linear 0.5 xalign 1.9
+
+    show nina:
+        linear 0.5 xalign 2.0
     "Bas rushes to his prince charming’s side and holds his hand. The boys start walking in front of Nina and I, jumping around as they do."
 
     mc "Any ideas as to what you’re going to wish for?"
@@ -970,7 +1015,11 @@ label start:
 
     "I’m not sure why, but I feel like I’m being watched. There’s not a single animal around, and I can’t even hear the birds sing nearby. Could there be a predator watching us?"
 
-    "No, even if there was, I don’t think it would look at me this way."
+    hide mikh
+    show mc scared version2 at center
+    pause 0.5
+    scene black with Fade(0.5, 0.5, 0.5)
+    "No. Even if..."
 
     "This thing is looking at me from head to toes with… Hunger."
 
