@@ -23,9 +23,9 @@ label start:
     pause 0.5
     #INTRO : 
 
-    nvl_narrator "Deep down in the forest,{w=1.5}{nw}" with Dissolve(1.0)
-    nvl_narrator "Where the last green leaf rests,{w=1.5}{nw}" with Dissolve(1.0)
-    nvl_narrator "Your cry will be heard…" with dissolve
+    nvl_narrator "{i}Deep down in the forest,{w=1.5}{nw}{/i}" with Dissolve(1.0)
+    nvl_narrator "{i}Where the last green leaf rests,{w=1.5}{nw}{/i}" with Dissolve(1.0)
+    nvl_narrator "{i}Your cries will be heard…{/i}" with dissolve
 
     scene interior_cottage with Fade(1.0,0.0,1.0)
 
@@ -44,27 +44,32 @@ label start:
     "I wish I could have gone with them…"
 
     "They looked so worried, rushing out the door and ranting of a distant family matter. I wanted to go with them, hoping to meet new relatives but I couldn’t."
-    play music "audio/OST/Main.mp3" fadein 1.0
+    #play music "audio/OST/Main.mp3" fadein 1.0
     "This town is the only thing I’ve known my entire life."
 
     "Since birth, my health has been weak. I wasn’t even allowed to wander past the courtyard."
 
     "I’m so glad to have my wonderful family and my friends, but… deep inside I long for adventure."
 
+    show mc happy
     "My parents sent word to my friends so that they’ll come visit while they’re away!"
 
     "I can’t wait, I missed them so much ever since they left to work in the city."
 
+    show mc neutral
     "My hands find the caramel pot but my gaze focuses on the dense forest."
 
+    show mc pensive
     "I catch a shadow moving, past the fence and into the woods. Despite the feeling of being watched, I often find peace picturing myself lost in the middle of that sea of trees."
 
     "Something catches my eye: a trinket on the window sill. It’s a little bracelet made from daisies."
 
+    show mc happy
     "My parents said that I must have helped a crow when I was little, and that’s where all these little gifts come from."
 
     "I put it in my pocket as I picture myself as a crow-commanding witch, bringing chaos and gifts in equal measure on my many adventures."
 
+    show mc neutral mouth open
     "Just as I was about to lose myself in my imagination, laughter and chatter brought me back to Earth."
     stop music fadeout 1.0
     hide mc
@@ -90,17 +95,23 @@ label start:
 
     "As I prepare myself to look surprised by their arrival, someone grabs my shoulder."
 
-    show mc happy at left:
+    show mc scared at left:
         xalign 0.5
-        linear 1.0 xalign 0.0
+        linear 1.0 xalign -0.05
+
+    show bas happy at right:
+        xalign 1.05
 
     "???" "No way! Don’t tell me you’re making your signature walnut pie? Luckyyy!"
 
-    show mc scared at left
+    show mc scared at left:
+        xalign -0.05
 
     mc "Ah-! Basilio, you scared me half to death!"
 
     "I turn to face my friends."
+
+    show bas happy mo
 
     b "Surpriiiise! Since you can’t party outside we thought we should bring the parteey to you!"
 
@@ -114,7 +125,7 @@ label start:
 
     show nina happy at left:
         xalign 0.3
-        easein 1.0 xalign 1.0
+        easein 1.0 xalign 0.5
 
     "I missed my best friend so much."
 
@@ -122,30 +133,56 @@ label start:
 
     show mc happy at left
 
-    show nina happy mouth open at right
+    show nina happy mouth open at center
 
     n "Glad to see you too, buttercup."
 
-    show nina happy at right
+    show nina happy at center
 
     "Basilio clears his throat to ask for our attention."
 
+    show nina embarrassed
     b "Someone even brought a gift for you~"
 
+    hide bas
+    hide nina
+    show mikh annoyed at right:
+        xalign 1.05
+
+    
+    show mc happy mouth open
     m "Basil, shut up…"
+
+    
+
+    show mikh blushing at right:
+        xalign 1.05
+        linear 1.0 xalign 0.4
 
     "Despite the embarrassment, he takes a beautiful handmade package from his basket and gives it to me."
 
+    show mikh pensive mo
     "A beautiful cyan apron unravels itself as I take it in my hands. In the corners, roses and vines intertwine in a deeper shade of green."
 
     show mc happy mouth open at left
 
     mc "Oh, Mikhail… This is so pretty! You know how much I love embroideries…"
 
+    show mikh happy
+
     "Mikhail smiles bashfully, relieved to see his gift being appreciated."
 
-    b "The poor guy worked on it day and night! You should have seen his concentrated face at the shop, he looked as if was about to take a shit…!"
+    
+    show bas happy at right:
+        xalign 1.05
 
+    b "The poor guy worked on it day and night! You should have seen his concentrated face at the shop."
+
+    show bas lmao
+    show mc neutral
+    b "He looked as if he was about to take a shit…!"
+
+    show bas happy
     #(quietly)
     m "…It was worth it."
 
@@ -153,12 +190,30 @@ label start:
 
         "Kiss him on the cheek.":
             $ points_end_2 += 1
+            $ flirted_with_mikhail = True
 
+
+            show mc happy at left:
+                xalign 0.0
+                linear 1.0 xalign 0.2
+
+            
+            show mikh blushing
             "I get closer while Basilio teases Mikhail and gently press my lips on his cheek, which instantly takes a pinkish color."
 
+            show mc happy at left:
+                xalign 0.3
+                linear 1.0 xalign 0.0
+
+            show mc happy mouth open
             mc "Thank you Mikhail, this is adorable. I’m glad to see you still love sewing."
 
+            show mikh sad mo
+
             m "I-I should be the one thanking you for encouraging me to keep going…"
+            
+            show mc scared 
+            show mikh annoyed
 
             "An awkward silence falls between us, until Bas collapses to the ground. I gasp as he tries to reach for the table."
 
@@ -166,6 +221,7 @@ label start:
 
             $ points_end_1 += 1
             $ points_end_3 += 1
+            $ flirted_with_mikhail = False
 
             "I can’t help but laugh while Basilio teases Mikhail by pinching his reddish cheeks."
 
@@ -176,42 +232,92 @@ label start:
             "Basilio suddenly falls to the ground. I gasp as he tries to reach for the table."
 
 
+    show bas shocked ver2
 
     b "Ugh… I… I’m about to diee… If only I could have tasted a walnut pie for the last time… Even just half of it…!"
 
+    show nina pissed mouth open:
+        xalign 0.65
+
     n "Basilio… Get off the floor. You’ll be fine."
+
+
+    show nina pissed
+    show mikh blushing
+    show mc pensive
 
     "Basilio walks, or rather crawls to the couch to lay on it."
 
     "He’s pretending to be unconscious, posing like a damsel in distress from old paintings."
 
+
+    show nina pissed mouth open
+    show mikh blushing
+    
     b "Only a true love’s kiss from my sweet Nina can save me now!"
+
+    
+
 
     n "Ack- Y-you little… Then I guess you’ll have to die, Bas, ‘cause I’m NOT doing it!"
 
+    hide nina 
+    hide mikh
+    hide bas
+    show mc:
+        linear 1.0 xalign 0.5
+
     "Seeing Nina all flustered in front of Basilio warms my heart, their old quarrels turned into love as we grew up."
 
+    show mc happy
     "Honestly, it makes me a little jealous - I don’t have what they have, and if I never leave this place I never will."
+
+
+    show mc sad head move
 
     "I look down to hide how I’m feeling. I need to cheer up a little, my friends are here with me, after all."
     "I need to make the most of it."
 
     #(whispering)
+    show mikh pensive mo:
+        xalign 1.05
+
+    show mc:
+        linear 1.0 xalign 0.3
+
+
     m "We should leave them alone for a bit, I can help you set the table if you’d like?"
+
+    hide mc
+    hide mikh
+
 
     "I nod, following him into the kitchen. We are quietly unpacking the dishes they brought and putting the finishing touches to the walnut pie when I notice Mikhail sneak a look at me."
 
-    m "We were thinking of taking you to the wishing tree tomorrow, but… I can always tell them to back off if you are too sick to go."
 
+    show mikh sad mo
+    show mc neutral:
+        xalign 0.1
+
+    m "We were thinking of taking you to the wishing tree tomorrow, but… I can always tell them to back off if you are too sick to go."
+    
 
     menu:
 
         "Tease him":
             $ points_end_2 += 1
 
+            show mc happy mouth open
+            show mikh blushing
+
             mc "Oh! I’m sure everything will be okay, Prince Charming will come to the rescue if I need him. I’m not worried."
 
+            show mikh annoyed
+
             m "Wait, you remember that …?"
+
+            show mc happy
+            show mikh happy
 
             mc "How could I forget! you carried me all the way home from Nina’s house despite the snow storm raging outside. You even gave me your coat so I wouldn’t get too sick."
 
@@ -224,83 +330,171 @@ label start:
 
             $ points_end_3 += 1
 
+            show mc neutral mouth open
+            show mikh pensive
             mc "Ah, really? Nah, I think I’ll be okay, I really want to get out and have some fun with you guys. You have no idea how boring it is walking around the house all day, only going out to do my chores."
+
+
+            show mc neutral
+            show mikh pensive mo
 
             m "I understand… Your parents still don’t allow you to go in the forest on your own, huh? I mean… Even though we’re adults now."
 
+
+            show mc blushing mouth open
+            show mikh happy
             mc "I know, right? They still freak out whenever I ask them to let me go pick mushrooms. Maybe they’re afraid of the wild boars that often come and steal our carrots, but it’s too much."
 
-            m "Hmm, wild boars you say? we’ll be fine as long as Nina is with us."
+
+            show mc happy
+            show mikh happy mo
+            m "Hmm, wild boars you say? We’ll be fine as long as Nina is with us."
 
             #(laughing)
-            mc "I know, right? Once she gives them the death stare,it’s all over. Poor things."
+      
+            show mc happy mouth open
+            
+            mc "I know, right? Once she gives them the death stare, it’s all over. Poor things."
 
             "We both laugh. It feels like the old times, when we were all neighbours… Going to the same school…"
 
+            
+            show mc neutral
+            show mikh pensive mo
             m "Do you hear something?"
-
+ 
+            show mc pensive
+            show mikh blushing
             mc "No? Should I?"
+           
 
+            show mc happy
+            show mikh happy mo
             m "No, it’s silent. It seems they both calmed down. Come on, let’s bring them the food."
 
 
-
+    hide mc
+    hide mikh
     "When we get back to the living room, Nina and Basilio are sitting next to each other. Basilio is pretending to be asleep, faking loud snores while Nina is mixing a pack of cards in her hands."
 
-    n "Let’s play a game while we have dinner! Hey MC, look - I did the art myself! Do you like them?"
+    
+        
+    show mc happy at left:
+        xalign -0.02
+
+    show nina happy mouth open at center:
+        xalign 0.5
+
+    n "Let’s play a game while we have dinner! Hey [mc_name], look - I did the art myself! Do you like them?"
+
+
+    mc "Sure! Let's play!"
+
+    # fade to black
+    scene black with Dissolve (1.0)
 
     #IF OBTAINED AT LEAST ONE ENDING : Skip the game?
 
-    #[CARD GAME GAMEPLAY : Vecia]
+    #[CARD GAME GAMEPLAY : Vecia] Out of game for now
 
-    "Some lines to add to make the game more alive?"
+    #"Some lines to add to make the game more alive?"
 
-    n "Basilio, stop looking over everyone’s shoulders."
 
-    m "Nina? Did you draw this detail on the back to recognize this card?"
+    #show bas nonchalant
+    #n "Basilio, stop looking over everyone’s shoulders."
 
-    n "…No."
+
+    #show mikh happy mo at left
+    #m "Nina? Did you draw this detail on the back to recognize this card?"
+
+    #show nina embarrassed
+    #n "…No."
 
 
 
 
     #IF MC WINS : 
 
-    mc "Ha! I win!"
+    
+    #"Ha! I win!"
 
-    n "I was so close…! Ugh, well done."
+    #n "I was so close…! Ugh, well done."
 
-    b "It’s time to crown our queen of cards! …Uhh, we don’t have anything to give you, so I guess you’ll have to imagine it."
+    #b "It’s time to crown our queen of cards! …Uhh, we don’t have anything to give you, so I guess you’ll have to imagine it."
 
-    "I lower my head, waiting for my hypothetical reward."
+    #"I lower my head, waiting for my hypothetical reward."
 
-    "Basilio juggles the imaginary crown with his hands before fake-dropping it dramatically."
+    #"Basilio juggles the imaginary crown with his hands before fake-dropping it dramatically."
 
-    b "NOOOOO, Careful everyone!"
+    #b "NOOOOO, Careful everyone!"
 
-    "Nina smacks a hand to her forehead, unamused by the buffoon’s show. Mikhail gestures to catch it mid-air and places it on my head."
+    #"Nina smacks a hand to her forehead, unamused by the buffoon’s show. Mikhail gestures to catch it mid-air and places it on my head."
 
-    "I wipe fake tears under my eyes."
+    #"I wipe fake tears under my eyes."
 
-    mc "Thank you, thank you… It’s such a great honor. Now, for my speech-"
+    #mc "Thank you, thank you… It’s such a great honor. Now, for my speech-"
 
-    n "Nope, not this again- I’m going to stop you right there."
+    #n "Nope, not this again- I’m going to stop you right there."
+    #########################################################################################
 
+
+    # fade back to the cottage scene
+    scene interior_cottage with Dissolve (1.0)
+
+
+
+    show mc happy at left:
+        xalign -0.02
+    
+    show mikh happy at left:
+        xalign 0.2
+        xzoom -1.0
+        
+    show nina happy at center:
+        xalign 0.7
+
+    show bas happy at right:
+        xalign 1.05
+        
+
+    
     n "It’s getting late, we better get some sleep before tomorrow’s great escape."
 
+
+    show mc neutral
+    show nina confused Ver2
+    show mikh annoyed
+    show bas nonchalant
     b "Yeah I agree. So… Mimi? I guess you’ll share the bedroom with [mc_name] tonight… You rascal."
 
     "Mikhail startles at the remark, flustered. Then he leans in towards Basilio with a sly smirk on his face."
 
+    show mc blushing
+    show nina confused Ver2
+    show mikh flirty
+    show bas shocked ver2
     m "I thought you’d rather spend the night with me, big boy…"
 
     #(winking)
+    
+    show mc happy mouth open
+    show nina embarrassed
+    show bas happy mo
+
     b "Ohoho, Now we’re talking! Sorry Nina, duty calls."
 
+    show mc happy
+    show mikh happy
+    show bas happy
     "Nina sighs and shakes her head, trying to pout in order to hide her smile."
+
 
     n "[mc_name], let’s get out of here before they infect us with their stupidity."
 
+    hide mc
+    hide nina
+    hide mikh
+    hide bas
     "We both head to my room and get ourselves ready to go to bed."
     stop music fadeout 1.0
     scene cg_bed with Dissolve (1.0)
@@ -395,7 +589,7 @@ label start:
 
     "Ah… Did I fall asleep while looking for mushrooms?"
 
-    scene forest with Dissolve(1.0)
+    scene dark_forest with Dissolve(1.0)
 
     "I look up to the clouds, frowning."
 
@@ -424,10 +618,16 @@ label start:
 
     "Finally, I spot a figure in front of me. It looks human and… Familiar?"
 
+    show mikh dark at center
     "???" "[mc_name], finally… I was waiting for you."
 
+    hide mikh
     "I recognize this voice… Mikhail? He came for me?"
 
+    show mc happy mouth open at left:
+        xalign -0.02
+
+    show mikh dark at center
     mc "Mikhail! Thank goodness you’re here. We need to get home, it’s not safe here-"
 
     "I reach for him, but he grabs my wrists and traps me in an embrace. It’s too tight."
@@ -444,40 +644,62 @@ label start:
 
     m "Let’s have some fun, [mc_name]…"
 
+
+    # fade to black
+    scene black with Dissolve (1.0)
     "He’s too strong. I can’t move. My throat closes up as he kisses my neck."
 
-    mc "Mikhail! S- stop!"
+    mc "Mikhail! S- stop!" with vpunch
 
 
     #IF MC WAS FLIRTY WITH MIKHAEL:
-    m "Mikhail scoffs in my ear, mocking my distress as if I was little Red Riding Hood caught in the big bad wolf’s trap."
+    if flirted_with_mikhail:
+        scene cg_nightmare_1 with Dissolve (1.0)
+        m "Mikhail scoffs in my ear, mocking my distress as if I was little Red Riding Hood caught in the big bad wolf’s trap."
 
-    m "Come on, don’t be shy now! You should have known before stringing me along. You know what they say, boys will be boys…"
+        m "Come on, don’t be shy now! You should have known before stringing me along. You know what they say, boys will be boys…"
+        
 
 
     #IF MC WAS FRIENDLY TO MIKHAEL:
-    "Mikhail squeezes me so tight in his arms, I could almost hear my bones cracking under the pressure."
+    else:
+        show cg_nightmare_1 with Dissolve (1.0)
+        "Mikhail squeezes me so tight in his arms, I can almost hear my bones cracking under the pressure."
 
-    m "Darling… You’re acting so pure and shy but I know you. I know that in reality, deep down in your heart, you’re longing for something far more sinister than this."
+        m "Darling… You’re acting so pure and shy but I know you."
+        m "I know that in reality, deep down in your heart, you’re longing for something far more sinister than this."
 
 
 
     m "Now relax and don’t move…"
+
+    scene black with Dissolve (1.0)
+
     "He tries to take off my clothes, and I wait for the right moment to push him off me."
     "I fall to the ground as he stumbles back."
 
+    scene dark_forest with Dissolve (1.0)
+    show mc scared version2 at center
+
     "This can’t be Mikhail, this… creature may look like him, but it can’t be-"
     scene monsterMIKH_CG with Dissolve (1.0) #zoom out pls
+
     "Roses are blooming from my friend’s eyes, tainted by blood. Vines intertwines around his limbs, contorting him like a puppet. Its bones are cracking as he writhes in pain."
 
     "What on Earth is this thing?!"
 
     "I can’t run away, my legs won’t move an inch. The thing cracks and stumbles towards me as I close my eyes and pray to whichever God can make my death as painless as it can be."
 
+
     scene black with Dissolve(1.0)
     stop music fadeout 1.0
-    "Then I heard Nina’s voice calling me."
+    "Then I hear Nina’s voice calling me."
 
+
+    scene interior_cottage with Dissolve (1.0)
+    play music "audio/OST/Main.mp3" fadein 1.0
+
+    show nina confused at center
     n "Hey sleepy-head, are you alright?"
 
     "I stir up from slumber, feeling her warm hand on my forehead brushing away strands of hair."
@@ -501,8 +723,15 @@ label start:
 
 
     mc "Thank you. I already cleaned the house yesterday so I only need to go check on the chickens this morning."
-    scene exterior_cottage with dissolve (1.0)
+    scene exterior_cottage with Dissolve(1.0)
     "Nina and I both take a basket and go outside, where chickens are hunting for worms. Their feathers, covered in morning dew’s pearls, make their warm colors brighter."
+
+    show mc happy:
+        xalign -0.01
+    
+    show nina happy:
+        xalign 1.05
+
     "I crouch to pet some of them, gently brushing off their heads and petting little chicks in my hands while Nina is fetching fresh eggs from their nests in the coop."
 
     "I look around and choose one of the chickens that has not been laying as much as she used to, and I wrap my hand around her neck and take her back to the kitchen."
@@ -511,20 +740,43 @@ label start:
 
     "I lay the chicken on the table, and hold it down with one hand as she squirms under the pressure. I grab the cleaver and swiftly put an end to it."
 
+
+    show nina terrified
+    # play knife sound here
+
+    #stop music fadeout 0.5
+    stop music fadeout 0.5
+    pause 0.9
+    show nina sad
+
     "Warm blood splashes on my face as I look at the last spasm of what was just seconds before a living creature. I watch the blood pool into a little basin, waiting patiently for the carcass to bleed out."
 
+    show mc neutral
     n "Urgh… I don’t know how you can do that so easily… I always ask Basilio to do it…"
 
     #(laughing coldly)
+    show mc pensive
     mc "Why? Roast chicken is your favourite. This is a necessary step for that, don’t you think?"
 
+    show nina confused Ver2
+    pause 1.0
+    show nina happy
     n "You’re not wrong, but still… Ugh, I’m gonna be sick. I’m going to go pick up some herbs."
 
+    hide nina
+    show mc at center
     "I nod as Nina hurries out the door, and I move the basin out of the way to start cleaning the bird."
 
+    show mc pensive worried
+    play music "audio/OST/creepy.mp3" fadein 1.0
     "As I silently pluck the feathers off its body, an uneasy feeling crawls its way up my spine to the back of my neck."
 
-    " Someone is watching me. I can feel their eyes on me."
+    show mc scared version2
+    "Someone is watching me. I can feel their eyes on me."
+
+    #sound effect here maybe?
+
+    show mc scared
     "Vines slowly wrap around my ankles as a wet and disgusting trail of saliva sneaks up between my shoulder blades."
 
 
@@ -533,34 +785,69 @@ label start:
         "Turn around":
             $ points_end_3 += 1
 
+            show mc:
+                xalign -0.05
             "This can’t be real. I take a deep breath and turn around."
 
+            show mikh happy at center
+            show mc neutral
             "Mikhail is there, his bed hair sticking out hilariously. I peek down at my ankles and of course, there’s nothing holding me in place."
+
+            show mc sad
             "Gods, I must be tired."
 
+            show mc neutral
+            show mikh annoyed
             m "Good morning… *yawns* I just woke up and I’m already so tired…"
 
         "Brandish the knife":
             $ points_end_1 += 1
             $ points_end_2 += 1
 
+            show mc:
+                xalign -0.05
+            show mikh scared at center
             "Adrenaline takes over, and I lunge for the knife that was near the sink. I jerk around to face the monster, only to find Mikhail standing there, caught off guard. His hands shoot up in surrender."
             "I lower the knife in disbelief at myself."
 
+            show mc scared version2
+            show mikh sad
             mc "M-Mikhail, I’m so sorry, I…"
 
+            show mc sad head move
+            show mikh sad mo
             m "Whoa! didn’t mean to scare you, I’m sorry…"
 
+            show mc blushing mouth open
+            show mikh sad
             mc "No it’s okay ! I… I mean… I’m the one who’s sorry, I didn’t want to…"
 
+            show mc sad
+            show mikh sad
             m "Hey, it’s fine… I did show up behind you without warning, didn’t I?"
 
+            hide mc
+            hide mikh
             "I put back the knife on the counter like it’s on fire. I’m in disbelief, and horrified. How could I point a knife at my friend?"
 
 
-    mc "Ah ah… Yeah, rough night, huh? I must be still half-asleep myself… I’m sorry…"
+    show mc sad mouth open:
+        xalign -0.05
+
+    show mikh blushing at center
+    mc "Haha… Yeah, rough night, huh? I must be still half-asleep myself… I’m sorry…"
 
     m "Hold on…"
+
+    show mikh dark
+    pause 0.3
+    show mikh blushing
+    pause 0.3
+    show mikh dark
+    pause 0.3
+    show mikh blushing
+
+    show mc scared
 
     "His hands reach towards me and I…" #MIKHAIL GLITCHING TO MONSTER FORM
 
