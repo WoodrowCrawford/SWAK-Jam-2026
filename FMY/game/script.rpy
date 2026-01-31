@@ -31,6 +31,8 @@ label start:
 
     show mc neutral at center
 
+
+
     mc "Alright, the caramel is done. I’ll do some cleaning while it’s cooling."
 
     "A faint breeze comes from the open window, making me shiver and reminding me to close them before night."
@@ -501,7 +503,7 @@ label start:
     "We both head to my room and get ourselves ready to go to bed."
     stop music fadeout 1.0
     scene cg_bed with Dissolve (1.0)
-    play music "audio/SFX/NightAmb_1.wav" fadein 1.0
+    play sound "audio/SFX/NightAmb_1.mp3" fadein 1.0
     n "How’s it going between you two?"
 
     mc "Huh? What do you mean?"
@@ -582,7 +584,7 @@ label start:
 
     n "Goodnight sweetheart."
 
-    play sound "audio/SFX/bedsheet1.wav"
+    play sound "audio/SFX/bedsheet1.mp3"
 
     stop sound fadeout 1.0
 
@@ -606,7 +608,7 @@ label start:
 
     mc "I need to get home, something’s not right here…"
 
-    play sound "audio/SFX/Steps_Forest1.wav" fadein 0.5
+    play sound "audio/SFX/Steps_Forest1.mp3" fadein 0.5
     "I walk through the dormant woods, everything is so… Quiet."
 
     "I can almost hear my heartbeat under the noise of my quickening footsteps."
@@ -614,13 +616,13 @@ label start:
     "Where are the rabbits, the boars, the deers? Even the wolves…? Where’s everyone?"
 
     "Please… Anyone… Answer my silent plea. I’m frightened, cold and alone…"
-    play sound "audio/VOICES/FAE/faegiggle.mp3" volume 0.5
+    play voice "audio/VOICES/FAE/faegiggle.mp3" volume 0.5
     "Suddenly, as if an angel had heard my prayers, a soft giggling reaches my ears."
-    play sound "audio/SFX/Steps_Forest2.wav"
+    play sound "audio/SFX/Steps_Forest2.mp3"
     "I start running through the forest, tripping over roots and sliding around in the mud and moss. I need to catch up to that voice, because if I don’t, then I’ll-"
 
     mc "Stop! Please come back! Don’t leave me here alone!"
-    play sound "audio/VOICES/FAE/faegiggle.mp3" volume 0.2
+    play voice "audio/VOICES/FAE/faegiggle.mp3" volume 0.2
     "Finally, I spot a figure in front of me. It looks human and… Familiar?"
 
     show mikh dark at right
@@ -700,9 +702,9 @@ label start:
     stop music fadeout 1.0
     "Then I hear Nina’s voice calling me."
 
-    scene  morning with Dissolve (1.0)
-    play music "audio/SFX/morningsfxhouse.mp3" fadein 1.0 #Credits for now : SFXHOUSE
-    play sound "audio/sfx/Bedsheet2.wav"
+    scene morning with Dissolve (1.0)
+    play sound "audio/SFX/morningsfxhouse.mp3" fadein 1.0 #Credits for now : SFXHOUSE
+    play sound "audio/sfx/Bedsheet2.mp3"
 
     n "Hey sleepy-head, are you alright?"
 
@@ -747,7 +749,7 @@ label start:
 
     show nina terrified
     # play knife sound here
-    play music "audio/SFX/Knife_Splatter.wav"
+    play sound "audio/SFX/Knife_Splatter.mp3"
     #stop music fadeout 0.5
     stop music fadeout 0.5
     pause 0.9
@@ -860,7 +862,7 @@ label start:
         "Slap his hand away ":
             $ points_end_1 += 1
             $ points_end_2 += 1
-            play sound "audio/SFX/Slap_Realistic.wav"
+            play sound "audio/SFX/Slap_Realistic.mp3"
             show mc scared version2
             show mikh sad
             "Without a second thought, I slap his hand away. His surprised expression turns into a hurt one."
@@ -960,7 +962,7 @@ label start:
     b "See you later, my sweet…"
 
     scene forest with Dissolve (1.0)
-    play sound "audio/SFX/wind.wav"
+    play sound "audio/SFX/wind.mp3"
 
     hide mc
     hide mikh
@@ -1050,13 +1052,13 @@ label start:
     show bas neutral at left:
         xzoom -1
     b "Nina, come on! You’re not gonna start working in the middle of the forest, are you?"
-    show nina pissed at right:
+    show nina pissed at right
     n "This is not for work, it’s for my wish! Let me do my thing."
     hide bas
     "Nina rummages around inside the basket and pulls out a plain doll painted purple and green."
 
     n "Mikhail’s clothes: check. Basilio’s tiny bracelet : Check. [mc_name]’s flowers : Check."
-    show nina happy at right:
+    show nina happy at right
 
     n "Alright, perfect! My wishing doll will be beautiful."
 
