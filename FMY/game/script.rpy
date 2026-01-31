@@ -158,6 +158,7 @@ label start:
     show mikh blushing at right:
         xalign 1.05
         linear 1.0 xalign 0.4
+        xzoom -1
 
     "Despite the embarrassment, he takes a beautiful handmade package from his basket and gives it to me."
 
@@ -260,7 +261,7 @@ label start:
 
 
 
-
+    show nina embarrassed
     n "Ack- Y-you little… Then I guess you’ll have to die, Bas, ‘cause I’m NOT doing it!"
 
     hide nina
