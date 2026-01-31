@@ -317,6 +317,9 @@ screen navigation():
         elif menu_screen == "preferences":
             xalign 0.0
             yalign 0.4
+        elif menu_screen == "history":
+            xalign 0.0
+            yalign 0.4
         elif menu_screen == "about":
             xalign 0.0
             yalign 0.4
@@ -324,8 +327,8 @@ screen navigation():
             xalign 0.0
             yalign 0.4
 
-
-        yalign 0.8
+        if menu_screen not in ("main_menu", "save", "load", "preferences", "history", "about", "help"):
+            yalign 0.8
 
         spacing gui.navigation_spacing
 
@@ -964,7 +967,7 @@ screen history():
     ## Avoid predicting this screen, as it can be very large.
     predict False
 
-    use game_menu(_("History"), scroll=("vpgrid" if gui.history_height else "viewport"), yinitial=1.0, spacing=gui.history_spacing):
+    use game_menu(_("History"), scroll=("vpgrid" if gui.history_height else "viewport"), yinitial=1.0, spacing=gui.history_spacing, title_ypos=60, title_xpos=60):
 
         style_prefix "history"
 
@@ -1057,6 +1060,7 @@ screen help():
 
         vbox:
             spacing 23
+            yoffset 0
 
             hbox:
                 xoffset 300
