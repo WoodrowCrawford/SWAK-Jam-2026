@@ -149,11 +149,11 @@ label start:
     show mikh annoyed at right:
         xalign 1.05
 
-    
+
     show mc happy mouth open
     m "Basil, shut up…"
 
-    
+
 
     show mikh blushing at right:
         xalign 1.05
@@ -172,7 +172,7 @@ label start:
 
     "Mikhail smiles bashfully, relieved to see his gift being appreciated."
 
-    
+
     show bas happy at right:
         xalign 1.05
 
@@ -197,7 +197,7 @@ label start:
                 xalign 0.0
                 linear 1.0 xalign 0.2
 
-            
+
             show mikh blushing
             "I get closer while Basilio teases Mikhail and gently press my lips on his cheek, which instantly takes a pinkish color."
 
@@ -211,8 +211,8 @@ label start:
             show mikh sad mo
 
             m "I-I should be the one thanking you for encouraging me to keep going…"
-            
-            show mc scared 
+
+            show mc scared
             show mikh annoyed
 
             "An awkward silence falls between us, until Bas collapses to the ground. I gasp as he tries to reach for the table."
@@ -253,15 +253,15 @@ label start:
 
     show nina pissed mouth open
     show mikh blushing
-    
+
     b "Only a true love’s kiss from my sweet Nina can save me now!"
 
-    
+
 
 
     n "Ack- Y-you little… Then I guess you’ll have to die, Bas, ‘cause I’m NOT doing it!"
 
-    hide nina 
+    hide nina
     hide mikh
     hide bas
     show mc:
@@ -300,7 +300,7 @@ label start:
         xalign 0.1
 
     m "We were thinking of taking you to the wishing tree tomorrow, but… I can always tell them to back off if you are too sick to go."
-    
+
 
     menu:
 
@@ -351,22 +351,22 @@ label start:
             m "Hmm, wild boars you say? We’ll be fine as long as Nina is with us."
 
             #(laughing)
-      
+
             show mc happy mouth open
-            
+
             mc "I know, right? Once she gives them the death stare, it’s all over. Poor things."
 
             "We both laugh. It feels like the old times, when we were all neighbours… Going to the same school…"
 
-            
+
             show mc neutral
             show mikh pensive mo
             m "Do you hear something?"
- 
+
             show mc pensive
             show mikh blushing
             mc "No? Should I?"
-           
+
 
             show mc happy
             show mikh happy mo
@@ -377,8 +377,8 @@ label start:
     hide mikh
     "When we get back to the living room, Nina and Basilio are sitting next to each other. Basilio is pretending to be asleep, faking loud snores while Nina is mixing a pack of cards in her hands."
 
-    
-        
+
+
     show mc happy at left:
         xalign -0.02
 
@@ -415,7 +415,7 @@ label start:
 
     #IF MC WINS : 
 
-    
+
     #"Ha! I win!"
 
     #n "I was so close…! Ugh, well done."
@@ -445,19 +445,19 @@ label start:
 
     show mc happy at left:
         xalign -0.02
-    
+
     show mikh happy at left:
         xalign 0.2
         xzoom -1.0
-        
+
     show nina happy at center:
         xalign 0.7
 
     show bas happy at right:
         xalign 1.05
-        
 
-    
+
+
     n "It’s getting late, we better get some sleep before tomorrow’s great escape."
 
 
@@ -476,7 +476,7 @@ label start:
     m "I thought you’d rather spend the night with me, big boy…"
 
     #(winking)
-    
+
     show mc happy mouth open
     show nina embarrassed
     show bas happy mo
@@ -498,7 +498,7 @@ label start:
     "We both head to my room and get ourselves ready to go to bed."
     stop music fadeout 1.0
     scene cg_bed with Dissolve (1.0)
-    play sound "audio/SFX/countryside_night.mp3" fadein 1.0
+    play sound "audio/SFX/NightAmb_1.mp3" fadein 1.0
     n "How’s it going between you two?"
 
     mc "Huh? What do you mean?"
@@ -579,6 +579,8 @@ label start:
 
     n "Goodnight sweetheart."
 
+    play sound "audio/SFX/bedsheet1.mp3"
+
     stop sound fadeout 1.0
 
     scene black with Dissolve(1.0)
@@ -601,7 +603,7 @@ label start:
 
     mc "I need to get home, something’s not right here…"
     play music "audio/OST/Creepy.mp3" fadein 1.0
-    play sound "audio/SFX/walk_forest.mp3" fadein 0.5
+    play sound "audio/SFX/Steps_Forest1.mp3" fadein 0.5
     "I walk through the dormant woods, everything is so… Quiet."
 
     "I can almost hear my heartbeat under the noise of my quickening footsteps."
@@ -609,9 +611,9 @@ label start:
     "Where are the rabbits, the boars, the deers? Even the wolves…? Where’s everyone?"
 
     "Please… Anyone… Answer my silent plea. I’m frightened, cold and alone…"
-
-    "Suddenly, as if an angel had heard me, a beautiful humming reaches my ears."
-
+    play sound "audio/VOICES/FAE/faegiggle.mp3"
+    "Suddenly, as if an angel had heard my prayers, a soft giggling reaches my ears."
+    play sound "audio/SFX/Steps_Forest2.mp3"
     "I start running through the forest, tripping over roots and sliding around in the mud and moss. I need to catch up to that voice, because if I don’t, then I’ll-"
 
     mc "Stop! Please come back! Don’t leave me here alone!"
@@ -658,7 +660,7 @@ label start:
         m "Mikhail scoffs in my ear, mocking my distress as if I was little Red Riding Hood caught in the big bad wolf’s trap."
 
         m "Come on, don’t be shy now! You should have known before stringing me along. You know what they say, boys will be boys…"
-        
+
 
 
     #IF MC WAS FRIENDLY TO MIKHAEL:
@@ -695,11 +697,10 @@ label start:
     stop music fadeout 1.0
     "Then I hear Nina’s voice calling me."
 
+    scene  morning with Dissolve (1.0)
+    play music "audio/SFX/morningsfxhouse.mp3" fadein 1.0 #Credits for now : SFXHOUSE
+    play sound "audio/sfx/Bedsheet2.mp3"
 
-    scene interior_cottage with Dissolve (1.0)
-    play music "audio/OST/Main.mp3" fadein 1.0
-
-    show nina confused at center
     n "Hey sleepy-head, are you alright?"
 
     "I stir up from slumber, feeling her warm hand on my forehead brushing away strands of hair."
@@ -728,7 +729,7 @@ label start:
 
     show mc happy:
         xalign -0.01
-    
+
     show nina happy:
         xalign 1.05
 
@@ -743,7 +744,7 @@ label start:
 
     show nina terrified
     # play knife sound here
-
+    play sound "audio/SFX/KnifeSplatter.mp3"
     #stop music fadeout 0.5
     stop music fadeout 0.5
     pause 0.9
@@ -788,7 +789,7 @@ label start:
             show mc:
                 xalign -0.05
             "This can’t be real. I take a deep breath and turn around."
-
+            stop music fadeout (1.0)
             show mikh happy at center
             show mc neutral
             "Mikhail is there, his bed hair sticking out hilariously. I peek down at my ankles and of course, there’s nothing holding me in place."
@@ -897,7 +898,7 @@ label start:
             scene black with Dissolve(1.0)
             "How could I think he was trying to hurt me? I need to stop thinking about that stupid dream. Thankfully the fresh towel calms me down, bringing me back to reality."
 
-
+            stop music
 
     scene interior_cottage with Fade(0.5, 0.5, 0.5)
     show mc happy at left:
@@ -913,7 +914,7 @@ label start:
     m "My liege, let me do that for you."
 
     "I can’t help but laugh with him."
-
+    play music "audio/OST/Cozy.mp3"
     "The unease from the previous night is fading away, and with it that awful dream I had. I hope to forget it soon."
 
     "We can’t appreciate the silence for too long as we hear a long annoyed sigh coming from the living room."
@@ -949,6 +950,7 @@ label start:
     b "See you later, my sweet…"
 
     scene forest with Dissolve (1.0)
+    play sound "audio/SFX/wind.mp3"
 
     hide mc
     hide mikh
@@ -962,7 +964,7 @@ label start:
 
     show mc happy:
         xalign -0.02
-    
+
     show bas happy:
         xalign 0.4
     "Those fairytales are a precious childhood memory I keep close to my heart."
@@ -1010,7 +1012,7 @@ label start:
     n "Yeah, I’ve even brought offerings to maximize our chances to have them granted! What about you?"
 
     mc "I’m still thinking about it…"
-
+    stop music
     "That’s what I’d like to say, but my mind is only filled with uneasiness."
 
     "I’m not sure why, but I feel like I’m being watched. There’s not a single animal around, and I can’t even hear the birds sing nearby. Could there be a predator watching us?"
@@ -1028,35 +1030,41 @@ label start:
     "If this predator decided to attack, I’d let it feed on me. There would be nothing I could do against it anyways."
 
     "Wait, why am I having these weird thoughts?"
-
+    play music "audio/SFX/forestburghrecords.mp3"
     b "Careful Nina, we don’t want to step on these weird mushrooms. Here, take my hand."
 
     "No it’s alright, I’m just nervous."
-
+    scene tree_bottom
     "I look up. A huge stone pine tree, surrounded by mushrooms, is sitting in front of us. Its needles, frail but dancing along the winds fearlessly, create an immense shadow that shields us from the sun."
-
+    show mikh happy:
+        xalign 0.5
     m "Wow… Every time I see it I can’t help but marvel at how majestic nature is."
-
+    show bas neutral:
+        linear 0.5 xalign 0.8
     b "Nina, come on! You’re not gonna start working in the middle of the forest, are you?"
-
+    show nina pissed :
+        linear 0.5 xalign 1.1
     n "This is not for work, it’s for my wish! Let me do my thing."
 
     "Nina rummages around inside the basket and pulls out a plain doll painted purple and green."
 
     n "Mikhail’s clothes: check. Basilio’s tiny bracelet : Check. [mc_name]’s flowers : Check."
-
+    show nina happy :
+        linear 0.5 xalign 1.1
     n "Alright, perfect! My wishing doll will be beautiful."
 
     "Tenderly, as a mother would, she dresses the wooden girl with a small piece of clothing made with care by Mikhail."
 
     "She crowns it with the tiny paper flowers I made for her last summer and finally straps them to its head with Basilio’s trinket."
-
+    show mc happy at left
     mc "That’s adorable."
 
     n "Thank you, I hope the fairy will like it."
-
+    show bas annoyed :
+        xalign 0.8
     b "No way, you’re still praying to that chick?"
-
+    show nina pissed :
+        xalign 1.1
     n "You shouldn’t call her that. I’m dead serious."
 
     "The forest fairy is the queen of these mountains. Every year, around the end of September, the townspeople celebrate her awakening which is said to grant wishes."
@@ -1066,45 +1074,59 @@ label start:
     "Fairytale or not, it brings comfort and hope to people for the next year to come."
 
     "I circle around the tree, looking at all the offerings decaying from the elusive passage of time."
-
+    hide bas annoyed
+    hide nina pissed
+    hide mikh happy
     "There’s more than just ribbons and carved wooden figures, in these gifts I see unspoken desires."
 
     "I hear commotion coming from the other side of the tree."
-
+    hide mc happy
+    show mikh pensive at center
+    show nina neutral at right
     n "Hear my plea, dear forest guardian…"
-
+    show bas pensive at left:
+        xzoom -1
     b "FAIRY, DARLING, I WISH TO HAVE MORE MUSCLES! And maybe a fuller beard…"
-
+    show mikh annoyed at center
+    show nina pissed mouth open at right
     n "As… As I humbly kneel on your holy ground…"
-
+    show bas lmao at left:
+        xzoom -1
     b "COME HERE MIMI! LET’S WISH FOR A  LENGTHY CHAMPAGNE RAIN ON OUR WEDDING DAY!"
-
+    show nina pissed at right
     n "Bas…"
-
     b "PERHAPS YOU COULD ASK FOR A HAPPILY EVER AFTER WITH-"
-
+    show nina sad angry mouth open at right
+    with hpunch
     n "BASILIO, I WISH YOU COULD SHUT UP FOR ONCE!"
+    show mikh scared
+    show bas shocked at left :
+        xzoom -1
 
     "The boys are stunned, even the wind stops and holds its breath."
 
     "Nina is clenching her fists and tears are prickling her eyes."
 
     n "You couldn’t help but make fun of me, couldn’t you, Bas?"
-
+    show bas shocked :
+        linear 0.5 xalign 0.8
+    show mc sad mouth open at left
     "I reach out to place a reassuring hand on her shoulder, but she swats my hand away."
-
+    show nina sad:
+        xalign 1.1
     n "I need to be alone."
-
+    hide nina
     "Nina walks away, weeping. Her doll rests against one of the roots covered in moss of the wishing tree, silently watching us."
-
+    show mikh annoyed at center
     m "Bas…"
-
+    show bas sad :
+        xzoom -1 xalign 0.8
     b "Urgh… I’m so stupid."
 
     "Bas sits down in the grass, a hand on his face."
 
     b "She was planning this for months, and I went and ruined it with my stupid jokes."
-
+    show mikh happy
     m "It’s okay, one look at you and she’ll know you’re sorry for acting like a dummy."
 
     b "Ha, I sure hope that’s the case…"
@@ -1112,7 +1134,7 @@ label start:
     "Bas smiles bitterly, then stands up."
 
     b "No, I need to apologize right now."
-
+    show mc pensive at left
     mc "She needs some space, Bas. I’ll go check on her, you can apologize when we come back."
 
     "Basilio is clearly hesitant: he wants to tag along and find her."
@@ -1126,11 +1148,14 @@ label start:
     mc "No problem, Bas. We’ll be back before you know it."
 
     "I let Mikhail comfort Basilio while I go looking for Nina."
-
+    hide bas
+    hide mikh
+    show mc neutral at center
+    scene forest with Dissolve (1.0)
     "She must be nearby, I can hear her soft crying."
 
     "As I walk through the woods I notice movement around me: wild rabbits, squirrels and even a few foxes gather to look at me. I stop in my tracks, baffled."
-
+    play music "audio/OST/Creepy.mp3"
     "These animals are usually pretty shy… Why aren’t they running away? And why do they look so sad?"
 
     "Carefully, one of the squirrels scurries to my feet and drops something before fleeing with the rest of the animals."
@@ -1138,8 +1163,11 @@ label start:
     "I lean down to grab what he left: it’s a single green oak leaf. What’s stranger is that I recognize the intricate patterns drawn into the leaf veins."
 
     "Where on Earth have I seen this before?"
-
-    "Nina’s weeping gets louder as I realise I had started walking again at some point. I put away the leaf in my apron pocket as I approach, finding her sitting against a rock. Her knees are close to her chest and her head is hidden behind her crossed arms. She’s trembling softly."
+    stop music
+    "Nina’s weeping gets louder as I realise I had started walking again at some point. I put away the leaf in my apron pocket as I approach, finding her sitting against a rock."
+    show mc neutral at left
+    show nina sad at right
+    "Her knees are close to her chest and her head is hidden behind her crossed arms. She’s trembling softly."
 
     mc "Hey, Nina… I came to make sure you’re okay."
 
@@ -1149,7 +1177,7 @@ label start:
 
     "She sobs and looks up at me."
 
-    n "We missed you so much [mc_name]… I’ve missed you. It’s so lonely in the city without you."
+    n "We missed you so much [mc_name]… {i}I’ve{/i} missed you. It’s so lonely in the city without you."
 
     "I kneel in front of her, lending her my handkerchief."
 
@@ -1162,7 +1190,7 @@ label start:
             $ points_end_2 += 1
             $ points_end_3 += 1
 
-
+            show mc happy at left
             "I can’t help but smile while Nina wipes away her tears, and I sit down to lean against her. Seeing someone this passionate about wanting to be around their loved ones is really moving."
             "I’m grateful to be one of the people she cares about."
 
@@ -1174,6 +1202,7 @@ label start:
             $ points_end_3 += 1
             $ points_secret_info += 1
 
+            show mc neutral at left
             "I can’t help but be confused. Why would she get so emotional about something like this? An old legend can’t help us against fate - we don’t get to decide what it has in store for us. It’s silly to wish for something like that, but still, I’m happy that she would wish for us to stay together."
 
             #show mc indifferent
@@ -1183,11 +1212,11 @@ label start:
     n "Thank you [mc_name]… That means a lot…"
 
     "We stay silent for a moment, then Nina sighs."
-
-    "I made a huge deal out of nothing, didn’t I? Is Bas going to be mad at me now…?"
-
+    show nina embarrassed at right
+    n "I made a huge deal out of nothing, didn’t I? Is Bas going to be mad at me now…?"
+    show mc happy at left
     mc "Of course not! He was already planning to get on his knees and beg for forgiveness, you know."
-
+    show nina happy at right
     "We laugh for a bit. I think carefully as to what to say to make her feel better."
 
     mc "I think both of them will be happy to hear your real wish, Nina."
@@ -1199,7 +1228,7 @@ label start:
     n "I’m ready."
 
     "We begin our journey to get back to our friends, hand in hand."
-
+    show mc pensive at left
     "We make our way through the woods, and eventually, it feels like it has been ages since we started walking."
 
     "Basilio will start searching for us if it takes too much time for us to get back."
@@ -1219,9 +1248,10 @@ label start:
     "Feeling my uneasiness, her thumb trails down my hand in a soft and warm caress. She is tugging me back, silently asking  to walk a little slower."
 
     "Her fingers intertwine with mine, squeezing my hand softly against hers. Despite her delicate demeanor, her grip is strong enough to know she won’t easily let go."
-
+    hide nina
+    show mc pensive worried at center
     "My heart skips a beat. Nina is sweet and caring, but this… This is a bit too intimate a touch."
-
+    with hpunch
     "My breathing is stiff, my ears are ringing… This is not the time to feel sick…"
 
     "Nina?" "Look at you, my poor sweetheart. You’re so pale… you can’t even walk on those shaky legs…"
@@ -1229,11 +1259,12 @@ label start:
     "I whip around, startled at the pretty lady holding my hand."
     scene Hicetia_CG with Dissolve (1.0)
     nl "Why not rest a little, my dear? Here, let’s sit down for a bit. There’s no need to rush…"
-
+    show Hicetia_CG :
+        ease 1.0 zoom 0.5
     "Our eyes meet, my heart stings as if pierced by a thousand needles. Something deep inside tells me we were meant to meet each other..."
     "I should have never set foot in this cursed forest."  #like in red or something spooky, shaking effect maybe?
-
-    "THANK YOU FOR PLAYING OUR DEMO!!! See you soon ! ~"
+    scene black with Dissolve (1.0)
+    "{b}THANK YOU FOR PLAYING OUR DEMO!!! See you soon ! ~{/b}"
 
 
     return
