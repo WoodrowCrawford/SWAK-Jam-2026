@@ -73,12 +73,12 @@ style vscrollbar:
 style slider:
     ysize gui.slider_size
     base_bar Frame("gui/slider/horizontal_[prefix_]bar.png", gui.slider_borders, tile=gui.slider_tile)
-    thumb Transform("gui/slider/horizontal_[prefix_]thumb.png", zoom=0.5, yoffset=-19)
+    thumb "gui/slider/horizontal_[prefix_]thumb.png"
 
 style vslider:
     xsize gui.slider_size
     base_bar Frame("gui/slider/vertical_[prefix_]bar.png", gui.vslider_borders, tile=gui.slider_tile)
-    thumb Transform("gui/slider/vertical_[prefix_]thumb.png", zoom=1.0)
+    thumb "gui/slider/vertical_[prefix_]thumb.png"
 
 
 style frame:
@@ -265,7 +265,7 @@ screen quick_menu():
             textbutton _("Save") action ShowMenu('save')
             textbutton _("Q.Save") action QuickSave()
             textbutton _("Q.Load") action QuickLoad()
-            textbutton _("Prefs") action ShowMenu('preferences')
+            textbutton _("Prefs") action ShowMenu('settings')
 
 
 ## This code ensures that the quick_menu screen is displayed in-game, whenever
@@ -304,30 +304,31 @@ screen navigation():
     $ menu_screen = CurrentScreenName()
 
     vbox:
+    ## Can change layout of menu items here, based on which menu we're in
         style_prefix "navigation"
         if menu_screen == "main_menu":
             xalign 0.75
             yalign 0.75
         elif menu_screen =="save":
             xalign 0.0
-            yalign 0.4
+            yalign 0.5
         elif menu_screen == "load":
             xalign 0.0
-            yalign 0.4
-        elif menu_screen == "preferences":
+            yalign 0.5
+        elif menu_screen == "settings":
             xalign 0.0
-            yalign 0.4
+            yalign 0.5
         elif menu_screen == "history":
             xalign 0.0
-            yalign 0.4
+            yalign 0.5
         elif menu_screen == "about":
             xalign 0.0
-            yalign 0.4
-        elif menu_screen == "help":
+            yalign 0.5
+        elif menu_screen == "controls":
             xalign 0.0
-            yalign 0.4
+            yalign 0.5
 
-        if menu_screen not in ("main_menu", "save", "load", "preferences", "history", "about", "help"):
+        if menu_screen not in ("main_menu", "save", "load", "settings", "history", "about", "controls"):
             yalign 0.8
 
         spacing gui.navigation_spacing
@@ -341,7 +342,7 @@ screen navigation():
 
         textbutton _("Load") action ShowMenu("load")
 
-        textbutton _("Preferences") action ShowMenu("preferences")
+        textbutton _("Settings") action ShowMenu("settings")
 
         if _in_replay:
 
@@ -352,12 +353,12 @@ screen navigation():
             
             textbutton _("Main Menu") action MainMenu()
 
-        textbutton _("About") action ShowMenu("about")
-
         if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
 
-            ## Help isn't necessary or relevant to mobile devices.
-            textbutton _("Help") action ShowMenu("help")
+            ## Controls isn't necessary or relevant to mobile devices.
+            textbutton _("Controls") action ShowMenu("controls")
+
+        textbutton _("About") action ShowMenu("about")
 
         if renpy.variant("pc"):
 
@@ -644,7 +645,7 @@ screen save():
 
     tag menu
 
-    use file_slots(_("Save"))
+    use file_slots(_("Save"), title_xpos=120, title_ypos=110)
 
 
 screen load():
@@ -672,6 +673,7 @@ screen file_slots(title, title_xpos=25, title_ypos=None):
 
                 key_events True
                 xalign 0.5
+                yalign -0.05
                 action page_name_value.Toggle()
 
                 input:
@@ -683,7 +685,7 @@ screen file_slots(title, title_xpos=25, title_ypos=None):
                 style_prefix "slot"
 
                 xalign 0.5
-                yalign 0.5
+                yalign 0.35
                 yoffset -80
 
                 spacing gui.slot_spacing
@@ -697,7 +699,10 @@ screen file_slots(title, title_xpos=25, title_ypos=None):
 
                         has vbox
 
-                        add FileScreenshot(slot) xalign 0.5 yoffset 50 xoffset 20 
+                        if FileLoadable(slot):
+                            add FileScreenshot(slot) xalign 0.5 yoffset 50 xoffset 20
+                        else:
+                            add Solid("#4f4242d4") xalign 0.5 yoffset 50 xoffset 20 xsize (gui.slot_button_width - 40) ysize (gui.slot_button_height - 100)
 
                         text FileTime(slot, format=_("{#file_time}%A, %B %d %Y, %H:%M"), empty=_("empty slot")):
                             style "slot_time_text"
@@ -744,6 +749,7 @@ screen file_slots(title, title_xpos=25, title_ypos=None):
                         textbutton _("Download Sync"):
                             action DownloadSync()
                             xalign 0.5
+                            yoffset 10
 
 
 style page_label is gui_label
@@ -784,23 +790,20 @@ style slot_button_text:
     properties gui.text_properties("slot_button")
 
 
-## Preferences screen ##########################################################
+## Settings screen ##########################################################
 ##
-## The preferences screen allows the player to configure the game to better
+## The settings screen allows the player to configure the game to better
 ## suit themselves.
 ##
 ## https://www.renpy.org/doc/html/screen_special.html#preferences
 
-screen preferences():
+screen settings():
 
     tag menu
 
-    use game_menu(_("Preferences"), scroll="viewport", title_ypos=100, title_xpos=70, title_size=50):
+    use game_menu(_("Settings"), scroll="viewport", title_xpos=120, title_ypos=110, title_size=50):
 
         vbox:
-
-            # shift the text to the right
-            xoffset 55
 
             hbox:
                 box_wrap True
@@ -815,22 +818,24 @@ screen preferences():
 
                 vbox:
                     style_prefix "check"
-                    spacing 50
                     label _("Skip")
                     textbutton _("Unseen Text") action Preference("skip", "toggle")
                     textbutton _("After Choices") action Preference("after choices", "toggle")
                     textbutton _("Transitions") action InvertSelected(Preference("transitions", "toggle"))
 
                 ## Additional vboxes of type "radio_pref" or "check_pref" can
-                ## be added here, to add additional creator-defined preferences.
+                ## be added here, to add additional creator-defined settings.
 
             null height (4 * gui.pref_spacing)
 
             hbox:
                 style_prefix "slider"
                 box_wrap True
+                spacing 40
+                xoffset 40
 
                 vbox:
+                    spacing 18
 
                     label _("Text Speed")
 
@@ -841,12 +846,11 @@ screen preferences():
                     bar value Preference("auto-forward time") style "slider"
 
                 vbox:
+                    spacing 18
 
                     if config.has_music:
                         label _("Music Volume")
-
-                        hbox:
-                            bar value Preference("music volume") style "slider"
+                        bar value Preference("music volume") style "slider"
 
                     if config.has_sound:
 
@@ -874,6 +878,7 @@ screen preferences():
                         textbutton _("Mute All"):
                             action Preference("all mute", "toggle")
                             style "mute_all_button"
+                            yoffset 30
 
 
 style pref_label is gui_label
@@ -938,7 +943,7 @@ style check_button_text:
     
 
 style slider_slider:
-    xsize 525
+    xsize 450
 
 style slider_button:
     properties gui.button_properties("slider_button")
@@ -949,7 +954,7 @@ style slider_button_text:
     properties gui.text_properties("slider_button")
 
 style slider_vbox:
-    xsize 675
+    xsize 600
 
 
 ## History screen ##############################################################
@@ -1042,13 +1047,13 @@ style history_label_text:
     xalign 0.5
 
 
-## Help screen #################################################################
+## Controls screen #################################################################
 ##
 ## A screen that gives information about key and mouse bindings. It uses other
 ## screens (keyboard_help, mouse_help, and gamepad_help) to display the actual
 ## help.
 
-screen help():
+screen controls():
 
     tag menu
 
