@@ -674,7 +674,7 @@ screen file_slots(title, title_xpos=25, title_ypos=None):
                 key_events True
                 xalign 0.5
                 yalign -0.05
-                action page_name_value.Toggle()
+                
 
                 input:
                     style "page_label_text"
@@ -706,6 +706,8 @@ screen file_slots(title, title_xpos=25, title_ypos=None):
 
                         text FileTime(slot, format=_("{#file_time}%A, %B %d %Y, %H:%M"), empty=_("empty slot")):
                             style "slot_time_text"
+                            xalign 0.5
+                            yoffset 99
 
                         text FileSaveName(slot):
                             style "slot_name_text"
@@ -727,11 +729,7 @@ screen file_slots(title, title_xpos=25, title_ypos=None):
                     textbutton _("<") action FilePagePrevious()
                     key "save_page_prev" action FilePagePrevious()
 
-                    if config.has_autosave:
-                        textbutton _("{#auto_page}A") action FilePage("auto")
-
-                    if config.has_quicksave:
-                        textbutton _("{#quick_page}Q") action FilePage("quick")
+                   
 
                     ## range(1, 10) gives the numbers from 1 to 9.
                     for page in range(1, 10):
@@ -801,7 +799,7 @@ screen settings():
 
     tag menu
 
-    use game_menu(_("Settings"), scroll="viewport", title_xpos=120, title_ypos=110, title_size=50):
+    use game_menu(_("Settings"), title_xpos=120, title_ypos=110, title_size=50):
 
         vbox:
 
@@ -811,10 +809,14 @@ screen settings():
                 if renpy.variant("pc") or renpy.variant("web"):
 
                     vbox:
-                        style_prefix "radio"
+                        style_prefix "check"
                         label _("Display")
                         textbutton _("Window") action Preference("display", "window")
                         textbutton _("Fullscreen") action Preference("display", "fullscreen")
+                        spacing 50
+                        xpos 100
+                        ypos -50
+                        
 
                 vbox:
                     style_prefix "check"
@@ -822,6 +824,9 @@ screen settings():
                     textbutton _("Unseen Text") action Preference("skip", "toggle")
                     textbutton _("After Choices") action Preference("after choices", "toggle")
                     textbutton _("Transitions") action InvertSelected(Preference("transitions", "toggle"))
+                    spacing 30
+                    xpos 300
+                    ypos -10
 
                 ## Additional vboxes of type "radio_pref" or "check_pref" can
                 ## be added here, to add additional creator-defined settings.
@@ -924,22 +929,27 @@ style radio_vbox:
 style radio_button:
     properties gui.button_properties("radio_button")
     foreground "gui/button/radio_[prefix_]foreground.png"
+    
 
 style radio_button_text:
     properties gui.text_properties("radio_button")
+    
 
 style check_vbox:
     spacing gui.pref_button_spacing
 
 style check_button:
     properties gui.button_properties("check_button")
+    hover_background Transform("gui/button/hover_background.png", zoom=.8, yoffset=10)
+    selected_hover_background Transform("gui/button/hover_background.png", zoom=.8, yoffset=10)
     foreground "gui/button/check_[prefix_]foreground.png"
     
     
 
 style check_button_text:
     properties gui.text_properties("check_button")
-    yoffset -30
+    ypos 45
+    xpos 70
     
 
 style slider_slider:
