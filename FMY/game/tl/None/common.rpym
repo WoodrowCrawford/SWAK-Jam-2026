@@ -867,7 +867,7 @@ translate None strings:
 
     # renpy/common/00sync.rpy:425
     old "This will upload your saves to the {a=https://sync.renpy.org}Ren'Py Sync Server{/a}.\nDo you want to continue?"
-    new "This will upload your saves to the {a=https://sync.renpy.org}Ren'Py Sync Server{/a}.\nDo you want to continue?"
+    new "This will upload your saves to the\n{a=https://sync.renpy.org}Ren'Py Sync Server{/a}.\nDo you want to continue?"
 
     # renpy/common/00sync.rpy:433
     old "Yes"

@@ -815,7 +815,7 @@ screen settings():
                         textbutton _("Fullscreen") action Preference("display", "fullscreen")
                         spacing 50
                         xpos 100
-                        ypos -50
+                        ypos -110
                         
 
                 vbox:
@@ -826,7 +826,7 @@ screen settings():
                     textbutton _("Transitions") action InvertSelected(Preference("transitions", "toggle"))
                     spacing 30
                     xpos 300
-                    ypos -10
+                    ypos -110
 
                 ## Additional vboxes of type "radio_pref" or "check_pref" can
                 ## be added here, to add additional creator-defined settings.
@@ -838,6 +838,7 @@ screen settings():
                 box_wrap True
                 spacing 40
                 xoffset 40
+                yoffset -100
 
                 vbox:
                     spacing 18
@@ -883,7 +884,7 @@ screen settings():
                         textbutton _("Mute All"):
                             action Preference("all mute", "toggle")
                             style "mute_all_button"
-                            yoffset 30
+                            yoffset -30
 
 
 style pref_label is gui_label
@@ -1266,6 +1267,98 @@ screen confirm(message, yes_action, no_action):
 
     ## Right-click and escape answer "no".
     key "game_menu" action no_action
+
+
+screen sync_confirm():
+
+    modal True
+
+    zorder 200
+
+    style_prefix "confirm"
+
+    add "gui/overlay/confirm.png"
+
+    frame:
+
+        vbox:
+            xalign .5
+            yalign .5
+            spacing 45
+
+            text _("This will upload your saves to the {a=https://sync.renpy.org}Ren'Py Sync Server{/a}.\nDo you want to continue?"):
+                style "confirm_prompt_text"
+                size 30
+                xalign 0.5
+                xmaximum 820
+                textalign 0.5
+                layout "tex"
+
+            hbox:
+                xalign 0.5
+                spacing 150
+
+                textbutton _("Yes") action Return(True)
+                textbutton _("No") action Return(False)
+
+    ## Right-click and escape answer "no".
+    key "game_menu" action Return(False)
+
+
+screen sync_prompt(prompt):
+
+    modal True
+
+    zorder 200
+
+    style_prefix "confirm"
+
+    add "gui/overlay/confirm.png"
+
+    frame:
+
+        vbox:
+            xalign .5
+            yalign .5
+            spacing 30
+
+            text _("Enter Sync ID"):
+                style "confirm_prompt_text"
+                size 32
+                xalign 0.5
+                textalign 0.5
+
+            text prompt:
+                style "confirm_prompt_text"
+                size 26
+                xalign 0.5
+                yoffset -20
+                xmaximum 820
+                textalign 0.5
+                layout "tex"
+                
+
+            input:
+                id "input"
+                xalign 0.5
+                yoffset -40
+
+            text _("This will contact the {a=https://sync.renpy.org}Ren'Py Sync Server{/a}."):
+                style "confirm_prompt_text"
+                size 24
+                xalign 0.5
+                yoffset -55
+                xmaximum 820
+                textalign 0.5
+                layout "tex"
+
+            textbutton _("Cancel"):
+                action Return("")
+                xalign 0.5
+                yoffset -70
+
+    ## Right-click and escape answer "no".
+    key "game_menu" action Return("")
 
 
 style confirm_frame is gui_frame
