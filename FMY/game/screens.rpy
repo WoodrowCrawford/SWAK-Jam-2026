@@ -187,7 +187,7 @@ screen input(prompt):
     window:
 
         vbox:
-        
+            spacing 14
             
             xanchor gui.dialogue_text_xalign
             xpos gui.dialogue_xpos
@@ -302,70 +302,101 @@ style quick_button_text:
 screen navigation():
 
     $ menu_screen = CurrentScreenName()
+    $ show_full_navigation = menu_screen != "history"
 
     vbox:
+
     ## Can change layout of menu items here, based on which menu we're in
-        style_prefix "navigation"
+        if menu_screen != "main_menu":
+            style_prefix "settings_navigation"
+        else:
+            style_prefix "navigation"
         if menu_screen == "main_menu":
             xalign 0.75
             yalign 0.75
         elif menu_screen =="save":
             xalign 0.0
             yalign 0.5
+            xoffset 110
+            yoffset -30
         elif menu_screen == "load":
             xalign 0.0
             yalign 0.5
+            xoffset 110
+            yoffset -30
         elif menu_screen == "settings":
             xalign 0.0
             yalign 0.5
+            xoffset 110
+            yoffset -30
         elif menu_screen == "history":
             xalign 0.0
             yalign 0.5
+            xoffset 110
+            yoffset -30
+
         elif menu_screen == "about":
             xalign 0.0
             yalign 0.5
+            xoffset 110
+            yoffset -30
         elif menu_screen == "controls":
             xalign 0.0
             yalign 0.5
+            xoffset 110
+            yoffset -30
 
         if menu_screen not in ("main_menu", "save", "load", "settings", "history", "about", "controls"):
             yalign 0.8
 
         spacing gui.navigation_spacing
 
+    ###################################################################
+        # Controls if the buttons are visible based on the menu it is in
+    ####################################################################
+
+        # By default, if the game is in the main menu, all the buttons
         if main_menu:
             textbutton _("Start") action Start()
+            textbutton _("Load") action ShowMenu("load")
+            textbutton _("Settings") action ShowMenu("settings")
+            textbutton _("Controls") action ShowMenu("controls")
+            textbutton _("About") action ShowMenu("about")
+            textbutton _("Quit") action Quit()
+
         else:
-            textbutton _("History") action ShowMenu("history")
+           
+               
+            # Keep the History screen focused by hiding the rest of the side menu.
+            if show_full_navigation:
 
-            textbutton _("Save") action ShowMenu("save")
+                textbutton _("Save") action ShowMenu("save")
 
-        textbutton _("Load") action ShowMenu("load")
+                textbutton _("Load") action ShowMenu("load")
 
-        textbutton _("Settings") action ShowMenu("settings")
+                textbutton _("Settings") action ShowMenu("settings")
 
-        if _in_replay:
+                if _in_replay:
 
-            textbutton _("End Replay") action EndReplay(confirm=True)
+                    textbutton _("End Replay") action EndReplay(confirm=True)
 
-        elif not main_menu:
+                elif not main_menu:
+
+                    textbutton _("Main Menu") action MainMenu()
+                    
+
+                if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
+
+                    ## Controls isn't necessary or relevant to mobile devices.
+                    textbutton _("Controls") action ShowMenu("controls")
+
+                
+                textbutton _("About") action ShowMenu("about")
 
             
-            textbutton _("Main Menu") action MainMenu()
 
-        if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
 
-            ## Controls isn't necessary or relevant to mobile devices.
-            textbutton _("Controls") action ShowMenu("controls")
-
-        textbutton _("About") action ShowMenu("about")
-
-        if renpy.variant("pc"):
-
-            ## The quit button is banned on iOS and unnecessary on Android and
-            ## Web.
-            textbutton _("Quit") action Quit(confirm=not main_menu)
-
+## The styles for the navigation buttons and text.
 
 style navigation_button is gui_button
 style navigation_button_text is gui_button_text
@@ -381,6 +412,23 @@ style navigation_button:
 
 style navigation_button_text:
     properties gui.text_properties("navigation_button")
+    xalign 0.5
+
+
+
+#The settngs menu also uses the navigation screen, but with different styles for the buttons. These styles are defined here.
+
+style settings_navigation_button is gui_button
+style settings_navigation_button_text is gui_button_text
+
+style settings_navigation_button:
+    size_group "navigation"
+    properties gui.button_properties("button")
+    xsize 200
+    ysize 70
+
+style settings_navigation_button_text:
+    properties gui.text_properties("button")
     xalign 0.5
   
     
@@ -606,7 +654,7 @@ screen about():
     ## This use statement includes the game_menu screen inside this one. The
     ## vbox child is then included inside the viewport inside the game_menu
     ## screen.
-    use game_menu(_("About"), scroll="viewport", title_ypos=100, title_xpos=100):
+    use game_menu(_("About"), scroll="viewport", title_ypos=60, title_xpos=100):
 
         style_prefix "about"
 
@@ -614,7 +662,7 @@ screen about():
             #shift the text to the right
             xoffset 50
 
-            label "[config.name!t]"
+            label "Pas de Deux"
             text _("Version [config.version!t]\n")
 
             ## gui.about is usually set in options.rpy.
@@ -645,14 +693,14 @@ screen save():
 
     tag menu
 
-    use file_slots(_("Save"), title_xpos=120, title_ypos=110)
+    use file_slots(_("Save"), title_xpos=125, title_ypos=60)
 
 
 screen load():
 
     tag menu
 
-    use file_slots(_("Load"), title_xpos=120, title_ypos=110)
+    use file_slots(_("Load"), title_xpos=118, title_ypos=60)
 
 
 screen file_slots(title, title_xpos=25, title_ypos=None):
@@ -799,7 +847,7 @@ screen settings():
 
     tag menu
 
-    use game_menu(_("Settings"), title_xpos=120, title_ypos=110, title_size=50):
+    use game_menu(_("Settings"), title_xpos=80, title_ypos=60, title_size=70):
 
         vbox:
 
@@ -1070,23 +1118,24 @@ screen controls():
 
     default device = "keyboard"
 
-    use game_menu(_("Controls"), scroll="viewport", title_ypos=110, title_xpos=50):
+    use game_menu(_("Controls"), title_ypos=60, title_xpos=60):
 
         style_prefix "help"
 
         vbox:
             spacing 23
-            yoffset 0
+            yoffset -70
+            xoffset 40
 
             hbox:
                 xoffset 300
+                
 
                 textbutton _("Keyboard") action SetScreenVariable("device", "keyboard")
+                null width 300
                 textbutton _("Mouse") action SetScreenVariable("device", "mouse")
 
-                if GamepadExists():
-                    textbutton _("Gamepad") action SetScreenVariable("device", "gamepad")
-
+                
             if device == "keyboard":
                 use keyboard_help
             elif device == "mouse":
@@ -1199,14 +1248,16 @@ screen gamepad_help():
 
 
 style help_button is gui_button
-style help_button_text is gui_button_text
+style help_button_text is navigation_button_text
 style help_label is gui_label
 style help_label_text is gui_label_text
 style help_text is gui_text
 
 style help_button:
-    properties gui.button_properties("help_button")
     xmargin 12
+    xoffset -150
+    
+    
 
 style help_button_text:
     properties gui.text_properties("help_button")
@@ -1243,6 +1294,12 @@ screen confirm(message, yes_action, no_action):
 
     style_prefix "confirm"
 
+    $ normalized_message = " ".join(renpy.substitute(message).split())
+    $ is_load_confirm = normalized_message == "Loading will lose unsaved progress. Are you sure you want to do this?"
+
+    # Edit this string directly if you want to customize the load warning popup text.
+    $ load_confirm_text = _("Loading will lose unsaved progress.\nAre you sure you want to do this?")
+
     add "gui/overlay/confirm.png"
 
     frame:
@@ -1252,14 +1309,23 @@ screen confirm(message, yes_action, no_action):
             yalign .5
             spacing 45
             
-
-            label _(message):
-                style "confirm_prompt"
-                xalign 0.5
+            if is_load_confirm:
+                text load_confirm_text:
+                    style "confirm_prompt_text"
+                    size 35
+                    xalign 0.5
+                    xmaximum 820
+                    textalign 0.5
+                    layout "tex"
+            else:
+                label _(message):
+                    style "confirm_prompt"
+                    xalign 0.5
                 
 
             hbox:
                 xalign 0.5
+                yoffset -30
                 spacing 150
 
                 textbutton _("Yes") action yes_action
@@ -1305,6 +1371,8 @@ screen sync_confirm():
     key "game_menu" action Return(False)
 
 
+
+# Sync prompt screen
 screen sync_prompt(prompt):
 
     modal True
@@ -1359,6 +1427,9 @@ screen sync_prompt(prompt):
 
     ## Right-click and escape answer "no".
     key "game_menu" action Return("")
+
+
+
 
 
 style confirm_frame is gui_frame
