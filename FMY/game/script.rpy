@@ -1083,7 +1083,7 @@ label start:
     play sound "audio/SFX/forestburghrecords.mp3"
     "The forest fairy is the queen of these mountains. Every year, around the end of September, the townspeople celebrate her awakening which is said to grant wishes."
 
-    "This story has lived through the ages, not without its variants. Some walk in the forest, some dance around the campfire while others pray to the moon at night from the comfort of their homes."
+    "This story has lived on through the ages, not without its variants. Some journey to the wishing tree, some dance around the campfire while others pray to the moon at night from the comfort of their homes."
 
     "Fairytale or not, it brings comfort and hope to people for the next year to come."
 
