@@ -5,5 +5,5 @@
         "**/*.rpymc": true,
         "**/cache/": true
     },
-    "renpyWarp.sdkPath": "c:/Users/sonic/Downloads/renpy-8.5.2-sdk"
+    "renpyWarp.sdkPath": "/Applications/renpy-8.5.3-sdk"
 }
