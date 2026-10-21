@@ -14,13 +14,13 @@ label start:
 
 
 label CC1_1:
-    
-    #INTRO : 
+
+    #INTRO :
     nvl_narrator "{i}Deep down in the forest,{w=1.5}{nw}{/i}" with Dissolve(1.0)
     nvl_narrator "{i}Where the last green leaf rests,{w=1.5}{nw}{/i}" with Dissolve(1.0)
     nvl_narrator "{i}Your cries will be heard…{/i}" with dissolve
 
-    scene interior_cottage with Fade(1.0,0.0,1.0)
+    scene interiorCottage_BG with Fade(1.0,0.0,1.0)
     show mc neutral at center
     mc "Alright, the caramel is done. I’ll do some cleaning while it’s cooling."
     "A faint breeze comes from the open window, making me shiver and reminding me to close them before night."
@@ -118,7 +118,7 @@ label CC1_1:
     #(quietly)
     m "…It was worth it."
 
-    menu :
+    menu:
         "Kiss him on the cheek.":
             $ points_end_2 += 1
             $ flirted_with_mikhail = True
@@ -183,7 +183,7 @@ label CC1_1:
     show mc:
         linear 1.0 xalign 0.1
     #(whispering)
-    m "{i}{size=25}We should leave them alone for a bit, I can help you set the table if you’d like?{/size}{/i}" 
+    m "{i}{size=25}We should leave them alone for a bit, I can help you set the table if you’d like?{/size}{/i}"
     hide mc
     hide mikh
 

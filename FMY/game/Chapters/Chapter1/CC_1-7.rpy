@@ -1,6 +1,6 @@
 label CC1_7:
 
-    scene forest with Dissolve (1.0)
+    scene forest_BG with Dissolve (1.0)
     "She must be nearby, I can hear her soft crying."
     "As I walk through the woods I notice movement around me: wild rabbits, squirrels and even a few foxes gather to look at me. I stop in my tracks, baffled."
     play music "audio/OST/Creepy.mp3"

@@ -1,6 +1,6 @@
 label CC1_6:
 
-    scene forest with Dissolve (1.0)
+    scene forest_BG with Dissolve (1.0)
     play sound "audio/SFX/wind.mp3"
     hide mc
     hide mikh
@@ -55,10 +55,10 @@ label CC1_6:
     play sound "audio/SFX/forestburghrecords.mp3"
     b "Careful Nina, we don’t want to step on these weird mushrooms. Here, take my hand."
     "No it’s alright, I’m just nervous."
-    scene tree_top with Dissolve (1.0)
+    scene treeTop_BG with Dissolve (1.0)
     "I look up. A huge stone pine tree, surrounded by mushrooms, is sitting in front of us. Its needles, frail but dancing along the winds fearlessly, create an immense shadow that shields us from the sun."
     m "Wow… Every time I see it I can’t help but marvel at how majestic nature is."
-    scene tree_bottom with Dissolve (1.0)
+    scene treeBottom_BG with Dissolve (1.0)
     show bas neutral at left:
         xzoom -1
     b "Nina, come on! You’re not gonna start working in the middle of the forest, are you?"

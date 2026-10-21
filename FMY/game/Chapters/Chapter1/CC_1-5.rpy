@@ -1,6 +1,6 @@
 label CC1_5:
 
-    scene morning with Dissolve (1.0)
+    scene morning_CG with Dissolve (1.0)
     play sound "audio/SFX/morningsfxhouse.mp3" fadein 1.0 #Credits for now : SFXHOUSE
     play sound "audio/sfx/Bedsheet2.mp3"
     n "Hey sleepy-head, are you alright?"
@@ -15,7 +15,7 @@ label CC1_5:
     mc "I’d love to save him but alas, I have chores to do before leaving. We should let them rest while they can."
     n "It’ll be faster if I help, so let me know what I can do."
     mc "Thank you. I already cleaned the house yesterday so I only need to go check on the chickens this morning."
-    scene exterior_cottage with Dissolve(1.0)
+    scene exteriorCottage_BG with Dissolve(1.0)
     "Nina and I both take a basket and go outside, where chickens are hunting for worms. Their feathers, covered in morning dew’s pearls, make their warm colors brighter."
     show mc happy:
         xalign -0.01
@@ -144,7 +144,7 @@ label CC1_5:
             scene black with Dissolve(1.0)
             "How could I think he was trying to hurt me? I need to stop thinking about that stupid dream. Thankfully the fresh towel calms me down, bringing me back to reality."
 
-    scene interior_cottage with Fade(0.5, 0.5, 0.5)
+    scene interiorCottage_BG with Fade(0.5, 0.5, 0.5)
     show mc happy at left:
         xalign -0.02
     show mikh happy at right:
@@ -190,5 +190,4 @@ label CC1_5:
     b "See you later, my sweet…"
 
     jump CC1_6
-
 

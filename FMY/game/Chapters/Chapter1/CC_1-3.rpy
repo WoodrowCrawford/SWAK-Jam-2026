@@ -1,5 +1,5 @@
 label CC1_3:
-    scene cg_bed with Dissolve (1.0)
+    scene bed_CG with Dissolve (1.0)
     play sound "audio/SFX/NightAmb_1.mp3" fadein 1.0
     n "How’s it going between you two?"
     mc "Huh? What do you mean?"

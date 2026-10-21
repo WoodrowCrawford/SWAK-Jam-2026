@@ -77,7 +77,7 @@ label CC1_2:
     #n "…No."
 
 
-    #IF MC WINS : 
+    #IF MC WINS :
 
 
     #"Ha! I win!"
@@ -103,7 +103,7 @@ label CC1_2:
 
 
     # fade back to the cottage scene
-    scene interior_cottage with Dissolve (1.0)
+    scene interiorCottage_BG with Dissolve (1.0)
 
     show mc happy at left:
         xalign -0.02

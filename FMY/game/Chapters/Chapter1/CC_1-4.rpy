@@ -3,7 +3,7 @@ label CC1_4:
     "Something is dripping on my face. Cool water makes its way down my cheek and onto the ground."
     "My hands brush the cold moss carefully, it must have been raining in the forest."
     "Ah… Did I fall asleep while looking for mushrooms?"
-    scene dark_forest with Dissolve(1.0)
+    scene darkForest_BG with Dissolve(1.0)
     play music "audio/OST/Creepy.mp3" fadein 1.0
     "I look up to the clouds, frowning."
     "Above the grey clouds, a pink hue peeks out before hiding back within its rain blanket."
@@ -60,7 +60,7 @@ label CC1_4:
     scene black with Dissolve (1.0)
     "He tries to take off my clothes, and I wait for the right moment to push him off me."
     "I fall to the ground as he stumbles back."
-    scene dark_forest with Dissolve (1.0)
+    scene darkForest_BG with Dissolve (1.0)
     show mc scared version2 at center
     "This can’t be Mikhail, this… creature may look like him, but it can’t be-"
     scene monsterMIKH_CG with Dissolve (1.0)
