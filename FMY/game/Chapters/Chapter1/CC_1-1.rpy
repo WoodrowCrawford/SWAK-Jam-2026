@@ -26,6 +26,7 @@ label CC1_1:
     "A faint breeze comes from the open window, making me shiver and reminding me to close them before night."
     "Fall is coming soon. Farewell to the summer’s warmth, the cicada’s songs, and the dances around the bonfire…"
     "I hope mom and dad are resting at their inn, they must be exhausted from walking."
+
     show mc sad at center
     "I wish I could have gone with them…"
     "They looked so worried, rushing out the door and ranting of a distant family matter. I wanted to go with them, hoping to meet new relatives but I couldn’t."
@@ -33,19 +34,25 @@ label CC1_1:
     "This town is the only thing I’ve known my entire life."
     "Since birth, my health has been weak. I wasn’t even allowed to wander past the courtyard."
     "I’m so glad to have my wonderful family and my friends, but… deep inside I long for adventure."
+
     show mc happy
     "My parents sent word to my friends so that they’ll come visit while they’re away!"
     "I can’t wait, I missed them so much ever since they left to work in the city."
+
     show mc neutral
     "My hands find the caramel pot but my gaze focuses on the dense forest."
+
     show mc pensive
     "I catch a shadow moving, past the fence and into the woods. Despite the feeling of being watched, I often find peace picturing myself lost in the middle of that sea of trees."
     "Something catches my eye: a trinket on the window sill. It’s a little bracelet made from daisies."
+
     show mc happy
     "My parents said that I must have helped a crow when I was little, and that’s where all these little gifts come from."
     "I put it in my pocket as I picture myself as a crow-commanding witch, bringing chaos and gifts in equal measure on my many adventures."
-    show mc neutral mouth open
+
+    show mc neutral mouth open at center
     "Just as I was about to lose myself in my imagination, laughter and chatter brought me back to Earth."
+
     stop music fadeout 1.0
     hide mc
     play music "audio/OST/Badalisc.mp3" fadein (1.0)
@@ -53,70 +60,102 @@ label CC1_1:
     "???" "For the Gods’ sake, we’re almost there! Didn’t you tell Simone you were “the strongest man in the valley”?"
     "???" "Fine, I confess…! I LIED to get the job, okay?? How could you blame a DESPERATE man for DESPERATELY wanting a job?!?"
     "???" "Guys, guys! If you don’t keep your voices down, you can kiss our surprise goodbye."
-    play music "audio/OST/Cozy.mp3" fadein 1.0
+
+    play music "audio/OST/Cozy.mp3" fadein (1.0)
     show mc happy mouth open at center
     "I try not to laugh and fail; they’re still as loud as ever."
     "Our neighbours don’t even waste their time scolding us anymore."
+
     show mc happy at center
     "I pour the caramel on the sweet shortcrust pastry, humming to myself."
     "As I prepare myself to look surprised by their arrival, someone grabs my shoulder."
-    show mc scared at left:
-        xalign 0.4
-        linear 1.0 xalign -0.05
-    show bas happy at right:
-        xalign 1.05
+
+    show mc scared:
+        center
+        easeout 1.0 xalign -0.05
+    show bas happy mo:
+        offscreenRight
+        linear 1.0 center
     "???" "No way! Don’t tell me you’re making your signature walnut pie? Luckyyy!"
+
     show mc scared at left:
         xalign -0.05
+    show bas happy:
+        center
+        linear 1.0 right4
     mc "Ah-! Basilio, you scared me half to death!"
     "I turn to face my friends."
+
     show bas happy mo
     b "Surpriiiise! Since you can’t party outside we thought we should bring the parteey to you!"
+
     show nina happy at left:
         xalign 1.5
         linear 1.0 xalign 0.3
-    show mc happy mouth open at left
+    show mc happy at left
+    show bas happy
     "Nina steps up to hug me and I squeeze her back."
+
     show nina happy at left:
         xalign 0.3
         easein 1.0 xalign 0.5
     "I missed my best friend so much."
+
+    show mc happy mouth open
     mc "Nina! It’s so good to see you!"
+
     show mc happy at left
     show nina happy mouth open at center
     n "Glad to see you too, buttercup."
+
     show nina happy at center
+    show bas smug
     "Basilio clears his throat to ask for our attention."
+
     show nina embarrassed
+    show bas happy mo:
+        xzoom -1
     b "Someone even brought a gift for you~"
+
+    # bas and nina exit stage right and mikh enters stage right
     hide bas
     hide nina
-    show mikh annoyed at right:
-        xalign 1.05
-    show mc happy mouth open
+    with moveoutright
+    show mikh annoyed:
+        right
+    with easeinright
+    show mc happy
     m "Basil, shut up…"
-    show mikh blushing at right:
-        xalign 1.05
-        linear 1.0 xalign 0.4
-        xzoom -1
+
+    show mikh blushing:
+        linear 1.0 left4
     "Despite the embarrassment, he takes a beautiful handmade package from his basket and gives it to me."
-    show mikh pensive mo
+
+    show mikh pensive
     "A beautiful cyan apron unravels itself as I take it in my hands. In the corners, roses and vines intertwine in a deeper shade of green."
+
     show mc happy mouth open at left
     mc "Oh, Mikhail… This is so pretty! You know how much I love embroideries…"
+
     show mikh happy
     "Mikhail smiles bashfully, relieved to see his gift being appreciated."
+
     show bas happy at right:
         xalign 1.05
     b "The poor guy worked on it day and night! You should have seen his concentrated face at the shop."
+
     show bas lmao
     show mc neutral
-    show mikh annoyed
+    show mikh annoyed:
+        xzoom -1
     with hpunch
     b "He looked as if he was about to take a shit…!"
+
     show bas happy
+    show mikh happy mo
     #(quietly)
     m "…It was worth it."
+    show mikh happy
 
     menu:
         "Kiss him on the cheek.":
@@ -125,18 +164,31 @@ label CC1_1:
 
             show mc happy at left:
                 xalign 0.0
-                linear 1.0 xalign 0.2
+                linear 1.0 left2
             show mikh blushing
             "I get closer while Basilio teases Mikhail and gently press my lips on his cheek, which instantly takes a pinkish color."
-            show mc happy at left:
-                xalign 0.3
-                linear 1.0 xalign 0.0
+
+            show mc happy:
+                linear 1.0 left
             show mc happy mouth open
             mc "Thank you Mikhail, this is adorable. I’m glad to see you still love sewing."
+
+            show mc happy
             show mikh sad mo
             m "I-I should be the one thanking you for encouraging me to keep going…"
+
             show mc scared
             show mikh annoyed
+            #bas will slowly fall down out of screen here
+            show bas shocked ver2:
+                pause 0.2
+                easein 1.0 ypos 1.1
+                pause 0.2
+                easein 1.0 ypos 1.3
+                pause 0.2
+                easein 1.0 ypos 1.5
+                pause 0.2
+                easein 1.0 ypos 2.0
             "An awkward silence falls between us, until Bas collapses to the ground. I gasp as he tries to reach for the table."
 
         "Warmly thank him.":
@@ -148,43 +200,57 @@ label CC1_1:
             "I can’t help but laugh while Basilio teases Mikhail by pinching his reddish cheeks."
             mc "Thank you Mikhail,truly, it’s a very sweet gift."
             m "Don’t mention it, after all… You’re the one who convinced me to become a tailor…"
+
+            #make bas fall here if he hasnt already
+            show bas shocked ver2:
+                easein 1.0 ypos 2.0
             "Basilio suddenly falls to the ground. I gasp as he tries to reach for the table."
 
 
     show bas shocked ver2
     b "Ugh… I… I’m about to diee… If only I could have tasted a walnut pie for the last time… Even just half of it…!"
+
     hide bas
     show nina embarrassed:
-        xalign 0.65
+        right
+    with easeinright
     n "Basilio… Get off the floor. You’ll be fine."
+
     show nina pissed
     show mikh blushing
     show mc pensive
     "Basilio walks, or rather crawls to the couch to lay on it."
     "He’s pretending to be unconscious, posing like a damsel in distress from old paintings."
-    show nina pissed mouth open
+
+    show nina pissed
     show mikh blushing
     b "Only a true love’s kiss from my sweet Nina can save me now!"
+
     show nina embarrassed
     n "Ack- Y-you little… Then I guess you’ll have to die, Bas, ‘cause I’m NOT doing it!"
+
+    # nina exits stage left
+    show nina:
+        xzoom -1
+    pause 0.2
     hide nina
-    hide mikh
+    with easeoutright
     hide bas
-    show mc:
-        linear 1.0 xalign 0.5
-    "Seeing Nina all flustered in front of Basilio warms my heart, their old quarrels turned into love as we grew up."
     show mc happy
+    "Seeing Nina all flustered in front of Basilio warms my heart, their old quarrels turned into love as we grew up."
     "Honestly, it makes me a little jealous - I don’t have what they have, and if I never leave this place I never will."
+
     show mc sad head move
     "I look down to hide how I’m feeling. I need to cheer up a little, my friends are here with me, after all."
     "I need to make the most of it."
+
     show mikh pensive mo:
-        xalign 1.05
-    show mc:
-        linear 1.0 xalign 0.1
+        xzoom 1
+        linear 1.0 center
     #(whispering)
     m "{i}{size=25}We should leave them alone for a bit, I can help you set the table if you’d like?{/size}{/i}"
     hide mc
     hide mikh
+    with dissolve
 
     jump CC1_2
