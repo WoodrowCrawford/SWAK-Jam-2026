@@ -1,6 +1,6 @@
 label CC1_3:
     scene bed_CG with Dissolve (1.0)
-    play sound "audio/SFX/NightAmb_1.mp3" fadein 1.0
+    play sound "audio/SFX/NightAmb_1.mp3" fadein 1.0 loop
     n "How’s it going between you two?"
     mc "Huh? What do you mean?"
     n "Oh come on, Basilio is being as discreet as a herd of giants running through the forest. We all know that Mikhail likes you, he’s getting more and more obvious."
