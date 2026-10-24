@@ -24,7 +24,6 @@ image mc scared version2 = Transform("Sprites/mc/mc_scaredVer2.png", zoom=0.5)
 image mc terrified = Transform("Sprites/mc/mc_terrified.png", zoom=0.5)
 
 
-
 # Nina Sprites
 image nina confused = Transform("Sprites/nina/nina_confused.png", zoom=0.5)
 image nina confused Ver2 = Transform("Sprites/nina/nina_confusedVer2.png", zoom=0.5)
@@ -60,7 +59,8 @@ image bas smug = Transform("Sprites/basilio/bas_smug.png", zoom=0.5)
 # Mikhail Sprites
 image mikh annoyed = Transform("Sprites/mikhail/mikh_annoyed.png", zoom=0.5)
 image mikh blushing = Transform("Sprites/mikhail/mikh_blushing.png", zoom=0.5)
-image mikh flirty = Transform("Sprites/mikhail/mikh_flirty.png", zoom=0.5)
+image mikh blushing mo = Transform("Sprites/mikhail/mikh_blushingMO.png", zoom=0.5)
+image mikh smirk = Transform("Sprites/mikhail/mikh_smirk.png", zoom=0.5)
 image mikh happy = Transform("Sprites/mikhail/mikh_happy.png", zoom=0.5)
 image mikh happy mo = Transform("Sprites/mikhail/mikh_happyMO.png", zoom=0.5)
 image mikh pensive = Transform("Sprites/mikhail/mikh_pensive.png", zoom=0.5)

@@ -198,10 +198,17 @@ label CC1_1:
 
             show mc happy at left
             "I can’t help but laugh while Basilio teases Mikhail by pinching his reddish cheeks."
+
+            show mc happy mouth open at left
             mc "Thank you Mikhail,truly, it’s a very sweet gift."
+
+            show mikh blushing mo
+            show mc happy
             m "Don’t mention it, after all… You’re the one who convinced me to become a tailor…"
 
             #make bas fall here if he hasnt already
+            show mc scared
+            show mikh annoyed
             show bas shocked ver2:
                 easein 1.0 ypos 2.0
             "Basilio suddenly falls to the ground. I gasp as he tries to reach for the table."
