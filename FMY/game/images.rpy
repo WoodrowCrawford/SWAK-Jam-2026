@@ -15,7 +15,7 @@ image treeFull_BG = "images/BGs/tree.png"
 ## CGs
 image bed_CG = "images/CGs/CG_bed.png"
 image wristHolding_CG = Transform("images/CGs/WristHolding_CG.png", zoom=0.50)
-image monsterMIKH_CG = Transform("images/CGs/monsterMIKH_CG.png", zoom=0.50)
+image monsterMIKH_CG = Transform("images/CGs/monsterMIKH_CG.png")
 image Hicetia_CG = "images/CGs/Hicetia_CG.png"
 image morning_CG = "images/CGs/CG-A_Morning_Legoliomanikas.png"
 image daisyBracelet_CG = "images/CGs/DaisyBracelet_CG.png"
