@@ -53,6 +53,12 @@ transform offscreenRight:
     xalign 1.8
 
 
+# screens
+screen red_screen:
+    add Solid("#f8252533")
+
 init python:
     def get_current_position(image_tag):
         return renpy.get_at_list(image_tag)
+
+    

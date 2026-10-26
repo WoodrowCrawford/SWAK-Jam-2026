@@ -1,7 +1,7 @@
 label CC1_5:
 
     scene morning_CG with Dissolve (1.0)
-    play sound "audio/SFX/morningsfxhouse.mp3" fadein 1.0 #Credits for now : SFXHOUSE
+    play music "audio/SFX/morningsfxhouse.mp3" fadein 1.0 #Credits for now : SFXHOUSE
     play sound "audio/sfx/Bedsheet2.mp3"
     n "Hey sleepy-head, are you alright?"
     "I stir up from slumber, feeling her warm hand on my forehead brushing away strands of hair."
@@ -15,24 +15,33 @@ label CC1_5:
     mc "I’d love to save him but alas, I have chores to do before leaving. We should let them rest while they can."
     n "It’ll be faster if I help, so let me know what I can do."
     mc "Thank you. I already cleaned the house yesterday so I only need to go check on the chickens this morning."
+
     scene exteriorCottage_BG with Dissolve(1.0)
     "Nina and I both take a basket and go outside, where chickens are hunting for worms. Their feathers, covered in morning dew’s pearls, make their warm colors brighter."
+
     show mc happy:
-        xalign -0.01
+        left2
     show nina happy:
-        xalign 1.05
+        right3
+    with dissolve
     "I crouch to pet some of them, gently brushing off their heads and petting little chicks in my hands while Nina is fetching fresh eggs from their nests in the coop."
     "I look around and choose one of the chickens that has not been laying as much as she used to, and I wrap my hand around her neck and take her back to the kitchen."
+
+    show mc happy mouth open
     mc "You can put the eggs over there, thank you Nina."
+
+    show mc happy
     "I lay the chicken on the table, and hold it down with one hand as she squirms under the pressure. I grab the cleaver and swiftly put an end to it."
     show nina terrified
     # play knife sound here
     # maybe add a red screen shake effect here
+    show screen red_screen
     play sound "audio/SFX/Knife_Splatter.mp3"
     #stop music fadeout 0.5
     stop music fadeout 0.5
     pause 0.9
     show nina sad
+   
     "Warm blood splashes on my face as I look at the last spasm of what was just seconds before a living creature. I watch the blood pool into a little basin, waiting patiently for the carcass to bleed out."
     show mc neutral
     n "Urgh… I don’t know how you can do that so easily… I always ask Basilio to do it…"
