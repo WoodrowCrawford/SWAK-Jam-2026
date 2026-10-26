@@ -5,13 +5,11 @@
 init offset = -1
 
 
-
 ################################################################################
 ## Bools
 ################################################################################
 default inMainMenu = False
 default inSettingsMenu = False
-
 
 
 ################################################################################
@@ -65,15 +63,20 @@ style scrollbar:
     base_bar Frame("gui/scrollbar/horizontal_[prefix_]bar.png", gui.scrollbar_borders, tile=gui.scrollbar_tile)
     thumb Frame("gui/scrollbar/horizontal_[prefix_]thumb.png", gui.scrollbar_borders, tile=gui.scrollbar_tile)
 
+
 style vscrollbar:
     xsize gui.scrollbar_size
     base_bar Frame("gui/scrollbar/vertical_[prefix_]bar.png", gui.vscrollbar_borders, tile=gui.scrollbar_tile)
     thumb Frame("gui/scrollbar/vertical_[prefix_]thumb.png", gui.vscrollbar_borders, tile=gui.scrollbar_tile)
 
+
+## used for the sliders in the settings
 style slider:
     ysize gui.slider_size
     base_bar Frame("gui/slider/horizontal_[prefix_]bar.png", gui.slider_borders, tile=gui.slider_tile)
-    thumb "gui/slider/horizontal_[prefix_]thumb.png"
+    thumb "gui/slider/hor_[prefix_]thumb_update.png"
+    thumb_offset 25
+
 
 style vslider:
     xsize gui.slider_size
@@ -84,7 +87,6 @@ style vslider:
 style frame:
     padding gui.frame_borders.padding
     background Frame("gui/frame.png", gui.frame_borders, tile=gui.frame_tile)
-
 
 
 ################################################################################
@@ -188,7 +190,7 @@ screen input(prompt):
 
         vbox:
             spacing 14
-            
+
             xanchor gui.dialogue_text_xalign
             xpos gui.dialogue_xpos
             xsize gui.dialogue_width
@@ -365,8 +367,8 @@ screen navigation():
             textbutton _("Quit") action Quit()
 
         else:
-           
-               
+
+
             # Keep the History screen focused by hiding the rest of the side menu.
             if show_full_navigation:
 
@@ -383,17 +385,15 @@ screen navigation():
                 elif not main_menu:
 
                     textbutton _("Main Menu") action MainMenu()
-                    
+
 
                 if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
 
                     ## Controls isn't necessary or relevant to mobile devices.
                     textbutton _("Controls") action ShowMenu("controls")
 
-                
-                textbutton _("About") action ShowMenu("about")
 
-            
+                textbutton _("About") action ShowMenu("about")
 
 
 ## The styles for the navigation buttons and text.
@@ -415,8 +415,7 @@ style navigation_button_text:
     xalign 0.5
 
 
-
-#The settngs menu also uses the navigation screen, but with different styles for the buttons. These styles are defined here.
+#The settings menu also uses the navigation screen, but with different styles for the buttons. These styles are defined here.
 
 style settings_navigation_button is gui_button
 style settings_navigation_button_text is gui_button_text
@@ -430,9 +429,6 @@ style settings_navigation_button:
 style settings_navigation_button_text:
     properties gui.text_properties("button")
     xalign 0.5
-  
-    
-
 
 
 ## Main Menu screen ############################################################
@@ -512,8 +508,7 @@ style main_menu_version:
 screen game_menu(title, scroll=None, yinitial=0.0, spacing=0, title_xpos=25, title_ypos=None, title_size=None):
 
     style_prefix "game_menu"
-    
-    
+
 
     if main_menu:
         add gui.main_menu_background
@@ -649,7 +644,7 @@ style return_button:
 screen about():
 
     tag menu
-    
+
 
     ## This use statement includes the game_menu screen inside this one. The
     ## vbox child is then included inside the viewport inside the game_menu
@@ -722,7 +717,7 @@ screen file_slots(title, title_xpos=25, title_ypos=None):
                 key_events True
                 xalign 0.5
                 yalign -0.05
-                
+
 
                 input:
                     style "page_label_text"
@@ -770,14 +765,13 @@ screen file_slots(title, title_xpos=25, title_ypos=None):
                 yalign 0.95
 
                 hbox:
-                    
+
 
                     spacing gui.page_spacing
 
                     textbutton _("<") action FilePagePrevious()
                     key "save_page_prev" action FilePagePrevious()
 
-                   
 
                     ## range(1, 10) gives the numbers from 1 to 9.
                     for page in range(1, 10):
@@ -864,7 +858,7 @@ screen settings():
                         spacing 50
                         xpos 100
                         ypos -110
-                        
+
 
                 vbox:
                     style_prefix "check"
@@ -932,7 +926,8 @@ screen settings():
                         textbutton _("Mute All"):
                             action Preference("all mute", "toggle")
                             style "mute_all_button"
-                            yoffset -30
+                            yoffset -200
+                            xoffset -650
 
 
 style pref_label is gui_label
@@ -967,7 +962,7 @@ style pref_label:
 
 style pref_label_text:
     yalign 1.0
-    
+
 
 style pref_vbox:
     xsize 338
@@ -978,11 +973,11 @@ style radio_vbox:
 style radio_button:
     properties gui.button_properties("radio_button")
     foreground "gui/button/radio_[prefix_]foreground.png"
-    
+
 
 style radio_button_text:
     properties gui.text_properties("radio_button")
-    
+
 
 style check_vbox:
     spacing gui.pref_button_spacing
@@ -992,14 +987,13 @@ style check_button:
     hover_background Transform("gui/button/hover_background.png", zoom=.8, yoffset=10)
     selected_hover_background Transform("gui/button/hover_background.png", zoom=.8, yoffset=10)
     foreground "gui/button/check_[prefix_]foreground.png"
-    
-    
+
 
 style check_button_text:
     properties gui.text_properties("check_button")
     ypos 45
     xpos 70
-    
+
 
 style slider_slider:
     xsize 450
@@ -1007,7 +1001,7 @@ style slider_slider:
 style slider_button:
     properties gui.button_properties("slider_button")
     yalign 0.5
-    
+
 
 style slider_button_text:
     properties gui.text_properties("slider_button")
@@ -1129,13 +1123,13 @@ screen controls():
 
             hbox:
                 xoffset 300
-                
+
 
                 textbutton _("Keyboard") action SetScreenVariable("device", "keyboard")
                 null width 300
                 textbutton _("Mouse") action SetScreenVariable("device", "mouse")
 
-                
+
             if device == "keyboard":
                 use keyboard_help
             elif device == "mouse":
@@ -1256,8 +1250,7 @@ style help_text is gui_text
 style help_button:
     xmargin 12
     xoffset -150
-    
-    
+
 
 style help_button_text:
     properties gui.text_properties("help_button")
@@ -1270,7 +1263,6 @@ style help_label_text:
     size gui.text_size
     xalign 1.0
     textalign 1.0
-
 
 
 ################################################################################
@@ -1308,7 +1300,7 @@ screen confirm(message, yes_action, no_action):
             xalign .5
             yalign .5
             spacing 45
-            
+
             if is_load_confirm:
                 text load_confirm_text:
                     style "confirm_prompt_text"
@@ -1321,7 +1313,7 @@ screen confirm(message, yes_action, no_action):
                 label _(message):
                     style "confirm_prompt"
                     xalign 0.5
-                
+
 
             hbox:
                 xalign 0.5
@@ -1371,7 +1363,6 @@ screen sync_confirm():
     key "game_menu" action Return(False)
 
 
-
 # Sync prompt screen
 screen sync_prompt(prompt):
 
@@ -1404,7 +1395,7 @@ screen sync_prompt(prompt):
                 xmaximum 820
                 textalign 0.5
                 layout "tex"
-                
+
 
             input:
                 id "input"
@@ -1429,9 +1420,6 @@ screen sync_prompt(prompt):
     key "game_menu" action Return("")
 
 
-
-
-
 style confirm_frame is gui_frame
 style confirm_prompt is gui_prompt
 style confirm_prompt_text is gui_prompt_text
@@ -1451,7 +1439,7 @@ style confirm_prompt_text:
     xalign 0.9
     xmaximum 720
     textalign 0.5
-    
+
     layout "subtitle"
 
 style confirm_button:
@@ -1766,7 +1754,6 @@ define bubble.expand_area = {
     "top_right" : (0, 22, 0, 0),
     "thought" : (0, 0, 0, 0),
 }
-
 
 
 ################################################################################

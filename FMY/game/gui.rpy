@@ -10,7 +10,7 @@ init offset = -2
 ## width and height of the game.
 init python:
     gui.init(1920, 1080)
-    
+
 
 ## Enable checks for invalid or unstable properties in screens or transforms
 define config.check_conflicting_properties = True
@@ -143,9 +143,6 @@ define gui.dialogue_width = 1116
 define gui.dialogue_text_xalign = 0.0
 
 
-
-
-
 ## Buttons #####################################################################
 ##
 ## These variables, along with the image files in gui/button, control aspects
@@ -201,8 +198,6 @@ define gui.quick_button_text_selected_color = gui.accent_color
 ## You can also add your own customizations, by adding properly-named
 ## variables. For example, you can uncomment the following line to set the width
 ## of a navigation button.
-
-
 
 
 ## Choice Buttons ##############################################################
@@ -316,7 +311,7 @@ define gui.frame_tile = False
 ## vertical bars, scrollbars, and sliders.
 define gui.bar_size = 38
 define gui.scrollbar_size = 18
-define gui.slider_size = 38
+define gui.slider_size = 100
 
 ## True if bar images should be tiled. False if they should be linearly scaled.
 define gui.bar_tile = False
